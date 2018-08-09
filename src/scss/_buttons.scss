@@ -1,0 +1,57 @@
+
+
+.btn {
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  display: inline-block;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition-delay: 0s;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-timing-function: ease;
+  width: auto;
+  padding: 0 10px;
+  min-width: 150px;
+  &-fancy {
+    background-size: 200% auto;
+    background-image: linear-gradient(-45deg, #1565c0 0%, #2196f3 50%, #1565c0 100%);
+    &:hover {
+      background-position: right center;
+    }
+  }
+  &-red {
+    background-size: 200% auto;
+    background-image: linear-gradient(-45deg, #ab0f04 0%, #f35b4f 50%, #ab0f04 100%);
+    &:hover {
+      background-position: right center;
+    }
+  }
+  &-tangerine {
+    background-color: $blue;
+    &:hover{
+      background-color: darken($blue, 7%);
+    }
+  }
+  &.btn-gray{
+    color: $grey-dark;
+    background-size: 200% auto;
+    background-image: linear-gradient(-45deg, #c1c1c1 0%, #eeeeee 50%, #c1c1c1 100%);
+    &:hover {
+      background-position: right center;
+    }
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+}
