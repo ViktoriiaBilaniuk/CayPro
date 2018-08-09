@@ -1,0 +1,45 @@
+@import '../../../../scss/_variables.scss';
+
+.container {
+
+}
+
+.menu-button{
+  transition: fill 500ms;
+}
+
+.outer-circle {
+  transform-origin: 60px 60px;
+  transition: transform 2s cubic-bezier(0.620, 0.005, 0.000, 1.005);
+  &__clicked {
+    transform: scale(3);
+    transition: transform 2s cubic-bezier(0.620, 0.005, 0.000, 1.005);
+  }
+}
+
+.button {
+  max-width: 12rem;
+  background: none;
+  border: 0 none;
+  font-size: 0;
+  cursor: pointer;
+  width: 160px;
+  outline: none;
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover {
+
+    .menu-button {
+      fill: $purple-light;
+    }
+
+    .outer-circle {
+      transform: rotate(360deg);
+    }
+
+  }
+
+}

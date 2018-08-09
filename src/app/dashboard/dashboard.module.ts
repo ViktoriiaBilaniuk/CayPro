@@ -5,6 +5,8 @@ import {SharedModule} from '../shared/shared.module';
 import {FormsModule} from '@angular/forms';
 import {MatChipsModule, MatInputModule} from '@angular/material';
 import { TestComponent } from './test/test.component';
+import {DashboardComponent} from './dashboard.component';
+import { TitleComponent } from './title/title.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { TestComponent } from './test/test.component';
   ],
   exports: [],
   declarations: [
-    TestComponent
+    TestComponent,
+    DashboardComponent,
+    TitleComponent
   ],
   providers: [],
 })

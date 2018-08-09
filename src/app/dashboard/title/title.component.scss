@@ -1,0 +1,239 @@
+@import '../../../scss/_variables.scss';
+
+.particle-network-animation {
+  animation: pulse 6s 1;
+  // animation-iteration-count: 1;
+
+}
+
+@keyframes pulse {
+  0% {
+    background-color: black;
+  }
+  /*  25% {
+      background-color: $purple-dark;
+    }
+    50% {
+      background-color: $purple-light;
+    }
+    75% {
+      background-color: $blue-text;
+    }*/
+  100% {
+    background-color: $blue-dark;
+  }
+}
+
+
+.particle-network-animation {
+  // position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: $blue-dark;
+  // background-image: linear-gradient(-135deg, #651056 0%, #3e0233 50%, #210218 100%);
+  // background-image: linear-gradient(#4f3abf 0%, #102882 30%, #03095d 60%, #03063e 100%);
+  &::before {
+    z-index: -2;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // background-image: url('../../../assets/images/sky.jpg');
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.2;
+  }
+}
+.glow {
+  z-index: -1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-image: radial-gradient(circle closest-side, rgba(255, 255, 255, 0.025), transparent);
+}
+$duration: 25s;
+.glow-1 {
+  width: 150vw;
+  height: 150vh;
+  margin-top: -75vh;
+  margin-left: -75vw;
+  animation: glow-1-move $duration linear infinite both;
+}
+@keyframes glow-1-move {
+  from {
+    transform: translate(-100%, 100%);
+  }
+  to {
+    transform: translate(100%, -100%);
+  }
+}
+.glow-2 {
+  width: 100vw;
+  height: 100vh;
+  margin-top: -50vh;
+  margin-left: -50vw;
+  animation: glow-2-move $duration linear $duration / 3 infinite both;
+}
+@keyframes glow-2-move {
+  from {
+    transform: translate(-100%, 0%);
+  }
+  to {
+    transform: translate(100%, 100%);
+  }
+}
+.glow-3 {
+  width: 120vw;
+  height: 120vh;
+  margin-top: -60vh;
+  margin-left: -60vw;
+  animation: glow-3-move $duration linear $duration / 3 * 2 infinite both;
+}
+@keyframes glow-3-move {
+  from {
+    transform: translate(100%, 100%);
+  }
+  to {
+    transform: translate(0%, -100%);
+  }
+}
+
+
+.title {
+  position: absolute;
+  z-index: 100;
+  font-size: 50px;
+  color: white;
+}
+
+.text-wrapp {
+  margin-left: 28%;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 72px;
+  z-index: 10;
+  position: absolute;
+  color: white;
+  top: 35%;
+}
+
+.gradient-words {
+  color: $purple;
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+  background-image: $purple-gradient-linear-horizontal;
+  -webkit-background-clip: text;
+  font-size: 80px;
+}
+
+.search {
+  position: absolute;
+  top: 47%;
+  width: 158px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80px;
+  background-size: contain;
+  z-index: 10;
+  // background-image: url("../../../../assets/images/search-white.svg");
+  transition: background-image 0.3s ease-in;
+  &:hover {
+    // background-image: url("../../../../assets/images/search-purple.svg");
+    transition: background-image 0.3s ease-out;
+  }
+}
+
+.transition-circle {
+  background-color: white;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: 1s ease-in;
+  top: 50%;
+  position: fixed;
+  overflow: hidden;
+  z-index: 0;
+  &__open {
+    width: 100vw;
+    height: 100vh;
+    transition: 1s ease-out;
+    top: 0%;
+    z-index: 11;
+  }
+}
+
+.steps {
+  position: absolute;
+  z-index: 15;
+  top: 24%;
+  right: 3%;
+
+  ul {
+    list-style: none;
+    font-size: 23px;
+    font-weight: 100;
+    width: 800px;
+    li {
+      line-height: 134px;
+      align-items: center;
+      display: flex;
+      &:after {
+        content: '';
+        width: 100px;
+        height: 1px;
+        background-color: $purple-light;
+        margin-left: -30px;
+        margin-top: 50px;
+      }
+    }
+    .char1 {
+      transform: rotate(65deg);
+      margin-left: 200px;
+    }
+    .char2 {
+      transform: rotate(50deg);
+      margin-left: -10px;
+    }
+    .char3 {
+      transform: rotate(35deg);
+      margin-left: -200px;
+    }
+    .char4 {
+      transform: rotate(20deg);
+      margin-left: -350px;
+    }
+    .char5 {
+      transform: rotate(5deg);
+      margin-left: -450px;
+    }
+    .digit {
+      color: $purple;
+      display: inline-block;
+      -webkit-text-fill-color: transparent;
+      background-image: $dark-purple-gradient-linear-vertical;
+      -webkit-background-clip: text;
+      font-weight: 600;
+      margin-right: 30px;
+      font-size: 120px;
+      position: absolute;
+      opacity: 0.3;
+      bottom: 30px;
+    }
+
+    .text {
+      margin-left: 100px;
+    }
+  }
+}
