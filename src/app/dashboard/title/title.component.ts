@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
 import {Router} from '@angular/router';
 
@@ -7,23 +7,12 @@ import {Router} from '@angular/router';
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss']
 })
-export class TitleComponent implements OnInit, AfterViewInit {
-  @ViewChild('changeText') changeTextElement;
+export class TitleComponent implements OnInit {
   counter = 0;
   text = ['JAVA', 'JAVASCRIPT', 'C#', 'PHP', 'PYTHON', 'C++', 'RUBY', 'SWIFT', 'OBJECTIVE-C', 'SCALA', 'TYPESCRIPT', 'KOTLIN'];
   circleButtonClick;
 
   constructor(private router: Router) { }
-
-  ngAfterViewInit() {
-    setInterval(() => {
-      this.changeTextElement.nativeElement.innerHTML = this.text[this.counter];
-      this.counter++;
-      if (this.counter >= this.text.length) {
-        this.counter = 0;
-      }
-    }, 1000);
-  }
 
   ngOnInit() {
     (function()  {

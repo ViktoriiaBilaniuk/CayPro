@@ -36,12 +36,7 @@
       background-position: right center;
     }
   }
-  &-tangerine {
-    background-color: $blue;
-    &:hover{
-      background-color: darken($blue, 7%);
-    }
-  }
+
   &.btn-gray{
     color: $grey-dark;
     background-size: 200% auto;

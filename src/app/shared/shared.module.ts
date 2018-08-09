@@ -8,10 +8,10 @@ import { CircleButtonComponent } from './components/circle-button/circle-button.
     CommonModule,
   ],
   declarations: [
-
-  CircleButtonComponent],
+    CircleButtonComponent
+  ],
   exports: [
-
+    CircleButtonComponent
   ],
 })
 export class SharedModule { }
