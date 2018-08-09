@@ -2,20 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
 import {SharedModule} from './shared/shared.module';
 import {AppRoutingModule} from './app-routing.module';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {CONSTANTS} from './core/constants';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent,
-    LoginComponent,
-    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +21,9 @@ import {AppRoutingModule} from './app-routing.module';
     CoreModule,
     SharedModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(CONSTANTS.FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

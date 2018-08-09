@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 export const ROUTES: Routes = [
   {path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
   {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-  {path: '**', redirectTo: 'dashboard'},
-  {path: '', pathMatch: 'full', redirectTo: 'dashboard'}
+  {path: '', pathMatch: 'full', redirectTo: ''}
 ];
 
 @NgModule({
