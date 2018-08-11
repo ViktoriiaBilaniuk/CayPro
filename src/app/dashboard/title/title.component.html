@@ -1,0 +1,17 @@
+<div class="particle-network-animation"></div>
+
+<section>
+  <div class="text-wrapp">
+    <h1>
+      <span class="gradient-words">CayPro</span> - catch your project
+    </h1>
+  </div>
+
+  <div class="transition-circle" [ngClass]="{'transition-circle__open': circleButtonClick}"></div>
+  <caypro-circle-button
+    class="search hoverable"
+    [click]="circleButtonClick"
+    (click)="go()">
+  </caypro-circle-button>
+
+</section>
