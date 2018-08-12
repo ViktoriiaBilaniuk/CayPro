@@ -1,0 +1,48 @@
+.card {
+  border: 1px solid #e4e4e4;
+  box-shadow: 10px 11px 20px 0px #d4d4d4;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  padding: 30px;
+  &__left {
+    width: 75%;
+  }
+  &__right {
+    width: 20%;
+  }
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.desc {
+
+}
+
+.icons {
+  list-style: none;
+  margin: 0;
+  .item {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+    line-height: 30px;
+    &__icon {
+      color: grey;
+      margin-right: 20px;
+      line-height: 30px;
+    }
+    &__value {
+
+    }
+  }
+}
+
+.details-btn {
+  width: 100%;
+  margin-top: 20px;
+}

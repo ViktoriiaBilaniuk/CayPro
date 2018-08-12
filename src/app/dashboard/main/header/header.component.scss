@@ -1,0 +1,29 @@
+@import '../../../../scss/_variables.scss';
+
+.full-width {
+  background-color: $blue-dark;
+  height: 70px;
+  margin-top: -17px;
+  background-image: $blue-purple-gradient;
+}
+
+.menu {
+  width: 100%;
+  right: 0;
+  color: white;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  line-height: 70px;
+  justify-content: flex-end;
+  cursor: pointer;
+  &__item {
+    margin-left: 20px;
+    transition: color 0.3s ease-out;
+    &:hover {
+      color: $grey;
+      transition: color 0.3s ease-in;
+    }
+
+  }
+}
