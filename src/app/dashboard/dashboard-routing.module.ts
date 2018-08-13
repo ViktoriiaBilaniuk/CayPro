@@ -4,13 +4,22 @@ import {TestComponent} from './test/test.component';
 import {DashboardComponent} from './dashboard.component';
 import {TitleComponent} from './title/title.component';
 import {MainComponent} from "./main/main.component";
+import {ProjectDetailsComponent} from "./main/projects/project-details/project-details.component";
+import {ProjectsComponent} from "./main/projects/projects.component";
 
 export const DASHBOARD_ROUTES: Routes = [
   {path: '', component: DashboardComponent, children: [
       {path: '', pathMatch: 'full', redirectTo: 'title'},
       {path: 'test', component: TestComponent},
       {path: 'title', component: TitleComponent},
-      {path: 'main', component: MainComponent},
+      {path: 'main', component: MainComponent,
+        children: [
+          {path: 'projects', component: ProjectsComponent},
+          {path: 'details/:id', component: ProjectDetailsComponent},
+          {path: '', pathMatch: 'full', redirectTo: 'projects'},
+        ]
+      },
+
     ]
   }
 ];

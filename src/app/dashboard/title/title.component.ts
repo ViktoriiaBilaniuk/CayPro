@@ -8,7 +8,6 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./title.component.scss']
 })
 export class TitleComponent implements OnInit {
-  counter = 0;
   text = ['JAVA', 'JAVASCRIPT', 'C#', 'PHP', 'PYTHON', 'C++', 'RUBY', 'SWIFT', 'OBJECTIVE-C', 'SCALA', 'TYPESCRIPT', 'KOTLIN'];
   circleButtonClick;
 

@@ -11,6 +11,7 @@ import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './main/header/header.component';
 import { ProjectsComponent } from './main/projects/projects.component';
 import { ProjectItemComponent } from './main/projects/project-item/project-item.component';
+import { ProjectDetailsComponent } from './main/projects/project-details/project-details.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ProjectItemComponent } from './main/projects/project-item/project-item.
     MainComponent,
     HeaderComponent,
     ProjectsComponent,
-    ProjectItemComponent
+    ProjectItemComponent,
+    ProjectDetailsComponent
   ],
   providers: [],
 })
