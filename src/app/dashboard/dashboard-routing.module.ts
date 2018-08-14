@@ -6,6 +6,7 @@ import {TitleComponent} from './title/title.component';
 import {MainComponent} from "./main/main.component";
 import {ProjectDetailsComponent} from "./main/projects/project-details/project-details.component";
 import {ProjectsComponent} from "./main/projects/projects.component";
+import {fadeInAnimation} from '../shared/animations/fade-in.animation';
 
 export const DASHBOARD_ROUTES: Routes = [
   {path: '', component: DashboardComponent, children: [
