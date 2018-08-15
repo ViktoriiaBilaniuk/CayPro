@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {fadeInAnimation} from '../../../../shared/animations/fade-in.animation';
+import {MatDialog} from '@angular/material';
+import {ProjectCostComponent} from './project-cost/project-cost.component';
 
 @Component({
   selector: 'caypro-project-details',
@@ -9,9 +11,26 @@ import {fadeInAnimation} from '../../../../shared/animations/fade-in.animation';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  constructor() { }
+  showContacts = false;
+
+  constructor(
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
+  }
+
+  openCostPopup() {
+    const dialogRef = this.dialog.open(ProjectCostComponent, {
+      width: '600px',
+      data: {  }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'show') {
+        this.showContacts = true;
+      }
+
+    });
   }
 
 }

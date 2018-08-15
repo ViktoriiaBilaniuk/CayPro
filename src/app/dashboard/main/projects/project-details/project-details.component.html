@@ -101,7 +101,24 @@
     </section>
     <hr>
     <section class="bottom">
-      <button class="btn btn-purple details-btn">Get contacts</button>
+      <button *ngIf="!showContacts" class="btn btn-purple details-btn" (click)="openCostPopup()">Get contacts</button>
+      <div *ngIf="showContacts" class="contacts">
+        <div class="contacts__content">
+          <div class="contacts__title bold">Codelions team</div>
+          <div class="contacts__split">
+            <i class="material-icons contacts__icon">
+              phone
+            </i>
+            <span class="item__value"> 097 234 21 02 </span>
+          </div>
+          <div class="contacts__split">
+            <i class="material-icons contacts__icon">
+              email
+            </i>
+            <span class="item__value"> codelions@gmail.com </span>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </div>
