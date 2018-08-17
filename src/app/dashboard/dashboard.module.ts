@@ -3,7 +3,7 @@ import {DashboardRoutingModule} from './dashboard-routing.module';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {FormsModule} from '@angular/forms';
-import {MatChipsModule, MatInputModule} from '@angular/material';
+import {MatChipsModule, MatDialog, MatDialogModule, MatInputModule, MatSelectModule} from '@angular/material';
 import { TestComponent } from './test/test.component';
 import {DashboardComponent} from './dashboard.component';
 import { TitleComponent } from './title/title.component';
@@ -12,6 +12,9 @@ import { HeaderComponent } from './main/header/header.component';
 import { ProjectsComponent } from './main/projects/projects.component';
 import { ProjectItemComponent } from './main/projects/project-item/project-item.component';
 import { ProjectDetailsComponent } from './main/projects/project-details/project-details.component';
+import { ProjectCostComponent } from './main/projects/project-details/project-cost/project-cost.component';
+import { FiltersComponent } from './main/projects/filters/filters.component';
+import {Ng5SliderModule} from 'ng5-slider';
 
 
 @NgModule({
@@ -22,8 +25,10 @@ import { ProjectDetailsComponent } from './main/projects/project-details/project
     FormsModule,
     MatChipsModule,
     MatInputModule,
+    MatDialogModule,
+    MatSelectModule,
+    Ng5SliderModule
   ],
-  exports: [],
   declarations: [
     TestComponent,
     DashboardComponent,
@@ -32,7 +37,12 @@ import { ProjectDetailsComponent } from './main/projects/project-details/project
     HeaderComponent,
     ProjectsComponent,
     ProjectItemComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ProjectCostComponent,
+    FiltersComponent
+  ],
+  entryComponents: [
+    ProjectCostComponent,
   ],
   providers: [],
 })

@@ -2,8 +2,8 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$bl-primary: mat-palette($mat-blue);
-$bl-accent:  mat-palette($mat-blue, 700, 800, 900);
+$bl-primary: mat-palette($mat-deep-purple);
+$bl-accent:  mat-palette($mat-deep-purple, 700, 800, 900);
 $bl-warn:    mat-palette($mat-red);
 
 $bl-theme: mat-light-theme($bl-primary, $bl-accent, $bl-warn);
