@@ -321,7 +321,7 @@ export class TitleComponent implements OnInit {
     this.circleButtonClick = true;
     setTimeout(() => {
       this.router.navigate(['../main'], { relativeTo: this.route });
-    }, 2000);
+    }, 500);
   }
 
 }

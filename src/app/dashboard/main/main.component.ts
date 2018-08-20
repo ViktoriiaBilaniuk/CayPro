@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {fadeInAnimation} from '../../shared/animations/fade-in.animation';
+import {circleAnimation} from '../../shared/animations/circle.animation';
 
 @Component({
   selector: 'caypro-main',
   templateUrl: './main.component.html',
-  animations: [fadeInAnimation],
+  animations: [circleAnimation],
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
