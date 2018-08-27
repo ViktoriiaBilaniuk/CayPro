@@ -19,10 +19,14 @@
   cursor: pointer;
   &__item {
     margin-left: 20px;
-    transition: color 0.3s ease-out;
-    &:hover {
-      color: $grey;
-      transition: color 0.3s ease-in;
+    a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s ease-out;
+      &:hover {
+        color: $grey;
+        transition: color 0.3s ease-in;
+      }
     }
 
   }

@@ -1,3 +1,89 @@
-<p>
-  login works!
-</p>
+<div class="wrapper-block">
+  <div class="wrapper" #wrapper>
+    <div class="box"></div>
+    <div class="wrapper-forms">
+      <div class="wrapper-info">
+        <div class="info-item">
+          <div class="table">
+            <div class="table-cell">
+              <p>
+                Have an account?
+              </p>
+              <div class="btn" (click)="buttonClick()">
+                Log in
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="table">
+            <div class="table-cell">
+              <p>
+                Don't have an account?
+              </p>
+              <div class="btn" (click)="buttonClick()">
+                Sign up
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-form">
+        <div class="form-item log-in">
+          <div class="table">
+            <form class="table-cell" #loginForm autocomplete="off">
+              <input
+                name="Email"
+                placeholder="Email"
+                id="email"
+                type="text"
+                required
+                autocomplete="false"
+                #email
+                [(ngModel)]="loginData.email"/>
+              <input
+                name="Password"
+                placeholder="Password"
+                type="Password"
+                id="password"
+                #pass
+                autocomplete="false"
+                required
+                [(ngModel)]="loginData.password"/>
+              <button class="btn btn-purple" (click)="login()" type="submit" [disabled]="loginForm.invalid">
+                Log in
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="form-item sign-up">
+          <div class="table">
+            <form class="table-cell" #registerForm autocomplete="off">
+              <input
+                name="Email"
+                placeholder="Email"
+                id="emailReg"
+                type="text"
+                required
+                #email
+                autocomplete="false"
+                [(ngModel)]="registerData.email"/>
+              <input
+                name="Password"
+                placeholder="Password"
+                type="Password"
+                id="passwordReg"
+                #pass
+                autocomplete="false"
+                required
+                [(ngModel)]="registerData.password"/>
+              <button class="btn btn-purple" type="submit" [disabled]="registerForm.invalid" (click)="signUp()">
+                Sign up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>

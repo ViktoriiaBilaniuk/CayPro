@@ -1,4 +1,4 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AuthComponent } from './auth.component';
@@ -13,6 +13,7 @@ import {SignupComponent} from './signup/signup.component';
     AuthRoutingModule,
     SharedModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [],
   declarations: [

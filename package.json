@@ -30,6 +30,7 @@
     "ng-factory": "^1.1.0",
     "ng5-slider": "^1.1.1",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.2",
     "undertaker-app-tasks": "^0.5.2",
     "zone.js": "~0.8.26"
   },

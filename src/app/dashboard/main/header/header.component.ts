@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../../core/services/auth/auth.service';
+import {tap} from 'rxjs/internal/operators';
 
 @Component({
   selector: 'caypro-header',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngOnInit() {
+    console.log(this.authService.isLoggedIn());
   }
 
 }

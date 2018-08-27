@@ -64,7 +64,7 @@ img {
 }
 
 .full-width {
-  width: 100vw;
+  // width: 100vw;
 }
 
 .container {
@@ -74,4 +74,8 @@ img {
 
 .bold {
   font-weight: bold;
+}
+
+input {
+  outline: none;
 }

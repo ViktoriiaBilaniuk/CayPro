@@ -10,6 +10,9 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {CONSTANTS} from './core/constants';
+import {SnackBarService} from './core/services/snackbar/snack-bar.service';
+import {MatSnackBarModule} from '@angular/material';
+import {AuthGuard} from './core/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -24,8 +27,12 @@ import {CONSTANTS} from './core/constants';
     AngularFireModule.initializeApp(CONSTANTS.FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    SnackBarService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
