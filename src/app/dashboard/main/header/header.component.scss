@@ -31,3 +31,24 @@
 
   }
 }
+
+.icon {
+  &__btn {
+    background-image: url('../../../../assets/images/person_white.png');
+    background-size: contain;
+    background-color: black;
+    height: 45px;
+    width: 45px;
+    position: relative;
+    top: 11px;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  &__email {
+    font-size: 11px;
+    color: $grey;
+    padding: 0 10px;
+  }
+}
+

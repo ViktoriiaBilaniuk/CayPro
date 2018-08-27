@@ -75,6 +75,9 @@ export class AuthService {
 
 
   logout() {
-    this.fireAuth.auth.signOut();
+    this.fireAuth.auth.signOut()
+      .then(data => {
+        console.log(data);
+      });
   }
 }

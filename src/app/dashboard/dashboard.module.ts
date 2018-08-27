@@ -3,7 +3,7 @@ import {DashboardRoutingModule} from './dashboard-routing.module';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {FormsModule} from '@angular/forms';
-import {MatChipsModule, MatDialog, MatDialogModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatChipsModule, MatDialog, MatDialogModule, MatInputModule, MatMenuModule, MatSelectModule} from '@angular/material';
 import { TestComponent } from './test/test.component';
 import {DashboardComponent} from './dashboard.component';
 import { TitleComponent } from './title/title.component';
@@ -27,7 +27,8 @@ import {Ng5SliderModule} from 'ng5-slider';
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    MatMenuModule,
   ],
   declarations: [
     TestComponent,
