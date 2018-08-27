@@ -8,13 +8,18 @@ import {tap} from 'rxjs/internal/operators';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  loggData;
 
   constructor(
     public authService: AuthService
   ) { }
 
   ngOnInit() {
-    console.log(this.authService.isLoggedIn());
+    this.authService.isLoggedIn()
+      .subscribe(data => {
+        console.log(data);
+        this.loggData = data;
+      });
   }
 
 }

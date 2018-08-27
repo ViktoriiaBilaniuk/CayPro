@@ -5,18 +5,33 @@ import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/fromPromise';
 import {first, tap} from 'rxjs/internal/operators';
+import {AngularFirestore} from 'angularfire2/firestore';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
+import {isNullOrUndefined} from "util";
+
+
+interface User {
+  uid: string;
+  email: string;
+  photoURL: string;
+  catchPhrase?: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   loggedUser;
   userLogged = false;
+  user: Observable<User>;
 
   constructor(
     public fireAuth: AngularFireAuth,
-    public fireDatabase: AngularFireDatabase) {
+    private afs: AngularFirestore) {
   }
 
   login(email, password) {
@@ -32,31 +47,32 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    this.fireAuth.authState.pipe(first()).pipe(
-      tap(user => {
-        if (user) {
-          console.log(user);
-          return true;
-        } else {
-          return false;
-        }
-      })
-    )
-      .subscribe();
-  }
-
-  get authenticated() {
-    this.fireAuth.authState.subscribe(res => {
-      console.log(res);
-      if (res && res.uid) {
-        console.log('user is logged in');
-        return true;
+    return this.fireAuth.authState.map(auth => {
+      console.log(auth);
+      if (isNullOrUndefined(auth)) {
+        return {
+          state: false
+        };
       } else {
-        console.log('user not logged in');
-        return false;
+        return {
+          user: auth,
+          state: false
+        };
       }
     });
   }
+
+  get currentUser() {
+    return this.fireAuth.authState.map(auth => {
+      console.log(auth);
+      if (isNullOrUndefined(auth)) {
+        return auth;
+      } else {
+        return null;
+      }
+    });
+  }
+
 
   logout() {
     this.fireAuth.auth.signOut();

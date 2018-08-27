@@ -2,11 +2,11 @@
 <div class="full-width">
   <div class="container">
     <ul class="menu">
-      <li class="menu__item" *ngIf="!authService.isUser()">
+      <li class="menu__item" *ngIf="!loggData.state">
         <a routerLink="../../auth" routerLinkActive="active">Login</a>
       </li>
-      <li class="menu__item" *ngIf="authService.isUser()">
-        <span>{{authService.loggedUser.email}}</span>
+      <li class="menu__item" *ngIf="loggData.state">
+        <span>{{loggData.user?.email}}</span>
       </li>
     </ul>
   </div>
