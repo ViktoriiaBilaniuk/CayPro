@@ -2,6 +2,10 @@
 <div class="full-width">
   <div class="container">
     <ul class="menu">
+      <li class="menu__item" [routerLink]="'./projects'">Projects</li>
+    </ul>
+
+    <ul class="login">
       <li class="menu__item" *ngIf="loggData?.state">
         <a routerLink="../../auth" routerLinkActive="active">Login</a>
       </li>

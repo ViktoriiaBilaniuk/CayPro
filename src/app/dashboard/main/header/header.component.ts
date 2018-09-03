@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../../../core/services/auth/auth.service';
 import {tap} from 'rxjs/internal/operators';
 
@@ -7,15 +7,16 @@ import {tap} from 'rxjs/internal/operators';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   loggData;
+  isLoggedInSubscription$;
 
   constructor(
     public authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.authService.isLoggedIn()
+    this.isLoggedInSubscription$ = this.authService.isLoggedIn()
       .subscribe(data => {
         console.log(data);
         this.loggData = data;
@@ -24,6 +25,10 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  ngOnDestroy() {
+    this.isLoggedInSubscription$.unsubscribe();
   }
 
 }

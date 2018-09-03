@@ -3,18 +3,21 @@
 .full-width {
   background-color: $blue-dark;
   height: 70px;
-  margin-top: -17px;
   background-image: $blue-purple-gradient;
 }
 
-.menu {
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login {
   width: 100%;
   right: 0;
   color: white;
   text-decoration: none;
   list-style: none;
-  display: flex;
-  line-height: 70px;
+  display: contents;
   justify-content: flex-end;
   cursor: pointer;
   &__item {
@@ -52,3 +55,13 @@
   }
 }
 
+.menu {
+  color: white;
+  font-size: 20px;
+  list-style: none;
+  padding: 0;
+  &__item {
+    cursor: pointer;
+    outline: none;
+  }
+}

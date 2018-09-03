@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CircleButtonComponent } from './components/circle-button/circle-button.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 @NgModule({
@@ -8,10 +9,12 @@ import { CircleButtonComponent } from './components/circle-button/circle-button.
     CommonModule,
   ],
   declarations: [
-    CircleButtonComponent
+    CircleButtonComponent,
+    SpinnerComponent
   ],
   exports: [
-    CircleButtonComponent
+    CircleButtonComponent,
+    SpinnerComponent
   ],
 })
 export class SharedModule { }

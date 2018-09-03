@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
-import {AngularFireDatabase} from 'angularfire2/database';
-import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/fromPromise';
-import {first, tap} from 'rxjs/internal/operators';
 import {AngularFirestore} from 'angularfire2/firestore';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import {isNullOrUndefined} from "util";
+import {isNullOrUndefined} from 'util';
 
 
 interface User {
@@ -64,7 +61,6 @@ export class AuthService {
 
   get currentUser() {
     return this.fireAuth.authState.map(auth => {
-      console.log(auth);
       if (isNullOrUndefined(auth)) {
         return auth;
       } else {
@@ -77,7 +73,7 @@ export class AuthService {
   logout() {
     this.fireAuth.auth.signOut()
       .then(data => {
-        console.log(data);
+
       });
   }
 }

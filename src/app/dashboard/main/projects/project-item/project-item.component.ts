@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {ProjectsService} from '../../../../core/services/projects/projects.service';
+import {SnackBarService} from '../../../../core/services/snackbar/snack-bar.service';
 
 @Component({
   selector: 'caypro-project-item',
@@ -8,13 +10,17 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ProjectItemComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  @Input() project;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
-  detailsClick(projectId) {
-    this.router.navigate(['../details', projectId], { relativeTo: this.route });
+  detailsClick() {
+    this.router.navigate(['../details', this.project.id], { relativeTo: this.route });
   }
 
 }

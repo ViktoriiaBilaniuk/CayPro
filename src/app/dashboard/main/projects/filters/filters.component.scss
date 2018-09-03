@@ -13,6 +13,9 @@
   margin-bottom: 60px;
   &__item {
     width: 20%;
+    &_team {
+      margin: 0 50px;
+    }
     &_budget {
       width: 60%;
     }

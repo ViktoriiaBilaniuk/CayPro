@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {fadeInAnimation} from '../../../shared/animations/fade-in.animation';
+import {ProjectsService} from '../../../core/services/projects/projects.service';
 
 @Component({
   selector: 'caypro-projects',
@@ -9,7 +10,7 @@ import {fadeInAnimation} from '../../../shared/animations/fade-in.animation';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public projectService: ProjectsService) { }
 
   ngOnInit() {
   }
