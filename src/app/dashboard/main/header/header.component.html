@@ -2,7 +2,10 @@
 <div class="full-width">
   <div class="container">
     <ul class="menu">
-      <li class="menu__item" [routerLink]="'./projects'">Projects</li>
+      <li class="menu__item menu__item_project" >
+        <i class="menu__item_icon material-icons" [routerLink]="'./add'">add_circle</i>
+        <span class="menu__item_link" [routerLink]="'./projects'">Projects</span>
+      </li>
     </ul>
 
     <ul class="login">

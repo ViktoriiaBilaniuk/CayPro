@@ -15,6 +15,7 @@ import { ProjectDetailsComponent } from './main/projects/project-details/project
 import { ProjectCostComponent } from './main/projects/project-details/project-cost/project-cost.component';
 import { FiltersComponent } from './main/projects/filters/filters.component';
 import {Ng5SliderModule} from 'ng5-slider';
+import { AddProjectComponent } from './main/projects/add-project/add-project.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {Ng5SliderModule} from 'ng5-slider';
     ProjectItemComponent,
     ProjectDetailsComponent,
     ProjectCostComponent,
-    FiltersComponent
+    FiltersComponent,
+    AddProjectComponent
   ],
   entryComponents: [
     ProjectCostComponent,

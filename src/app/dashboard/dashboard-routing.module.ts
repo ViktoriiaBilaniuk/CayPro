@@ -6,6 +6,7 @@ import {TitleComponent} from './title/title.component';
 import {MainComponent} from './main/main.component';
 import {ProjectDetailsComponent} from './main/projects/project-details/project-details.component';
 import {ProjectsComponent} from './main/projects/projects.component';
+import {AddProjectComponent} from './main/projects/add-project/add-project.component';
 
 export const DASHBOARD_ROUTES: Routes = [
   {path: '', component: DashboardComponent, children: [
@@ -15,7 +16,9 @@ export const DASHBOARD_ROUTES: Routes = [
       {path: 'main', component: MainComponent,
         children: [
           {path: 'projects', component: ProjectsComponent},
-          {path: 'details/:id', component: ProjectDetailsComponent},
+          {path: 'project/:id', component: ProjectDetailsComponent},
+          {path: 'add', component: AddProjectComponent},
+
           {path: '', pathMatch: 'full', redirectTo: 'projects'},
         ]
       },

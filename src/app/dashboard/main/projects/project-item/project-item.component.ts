@@ -20,7 +20,7 @@ export class ProjectItemComponent implements OnInit {
   }
 
   detailsClick() {
-    this.router.navigate(['../details', this.project.id], { relativeTo: this.route });
+    this.router.navigate(['../project', this.project.id], { relativeTo: this.route });
   }
 
 }
