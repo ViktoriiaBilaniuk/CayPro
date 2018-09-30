@@ -1,0 +1,26 @@
+<div class="filters">
+  <div class="filters__item">
+    <span class="filters__text">Term</span>
+    <mat-form-field class="">
+      <mat-select [(value)]="selectedBudgetFilterOption">
+        <mat-option value="{{option}}" *ngFor="let option of budgetFilterOptions">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="filters__item filters__item_team">
+    <span class="filters__text">Team size</span>
+    <mat-form-field class="">
+      <mat-select [(value)]="selectedTeamFilterOption">
+        <mat-option value="{{option}}" *ngFor="let option of teamFilterOptions">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="filters__item filters__item_budget">
+    <span class="filters__text"> Budget $ </span>
+    <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+  </div>
+  <div class="filters__btn">
+    <button class="btn btn-purple">Apply</button>
+  </div>
+</div>
+

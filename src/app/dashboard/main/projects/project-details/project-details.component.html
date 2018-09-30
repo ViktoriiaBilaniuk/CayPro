@@ -1,0 +1,83 @@
+<div class="container" [@fadeInAnimation]="true">
+  <div class="card" *ngIf="project">
+    <div class="title">
+      {{project.title}}
+    </div>
+    <hr>
+    <div class="desc">{{project.description}}</div>
+    <hr>
+    <section class="details">
+      <ul class="icons">
+        <li class="item">
+          <span class="bold">Budget</span>
+          <div class="item__split">
+            <i class="material-icons item__icon">
+              attach_money
+            </i>
+            <span class="item__value"> {{project.budget.from}} -  {{project.budget.to}} </span>
+          </div>
+          <div class="item__desc">
+            {{project.type}}
+          </div>
+        </li>
+        <li class="item">
+          <span class="bold">Time</span>
+          <div class="item__split">
+            <i class="material-icons item__icon">
+              schedule
+            </i>
+            <span class="item__value"> {{project.time}} month </span>
+          </div>
+          <div class="item__desc">
+            Long term project
+          </div>
+        </li>
+      </ul>
+    </section>
+    <hr>
+    <section class="team">
+      <div class="team__title bold">Team members</div>
+      <div class="team__content">
+        <div class="item"  *ngFor="let teamMember of project.team">
+          <div class="item__category">
+            <span class="item__title bold"> Category: </span>
+            <span class="item__value"> {{teamMember.category}} </span>
+          </div>
+          <div class="item__experience">
+            <span class="item__title bold"> Experience: </span>
+            <span class="item__value"> {{teamMember.experience}} years </span>
+          </div>
+          <div class="item__skills">
+            <span class="item__title bold"> Skills and expertise: </span>
+            <mat-chip-list>
+              <mat-chip *ngFor="let skill of teamMember.skills">{{skill}}</mat-chip>
+            </mat-chip-list>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <hr>
+    <section class="bottom">
+      <button *ngIf="!showContacts" class="btn btn-purple details-btn" (click)="openCostPopup()">Get contacts</button>
+      <div *ngIf="showContacts" class="contacts">
+        <div class="contacts__content">
+          <div class="contacts__title bold">Codelions team</div>
+          <div class="contacts__split">
+            <i class="material-icons contacts__icon">
+              phone
+            </i>
+            <span class="item__value"> 097 234 21 02 </span>
+          </div>
+          <div class="contacts__split">
+            <i class="material-icons contacts__icon">
+              email
+            </i>
+            <span class="item__value"> codelions@gmail.com </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <caypro-spinner *ngIf="!project"></caypro-spinner>
+</div>

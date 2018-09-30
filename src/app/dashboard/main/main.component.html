@@ -1,0 +1,5 @@
+<caypro-header></caypro-header>
+<div [@fadeInAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
+

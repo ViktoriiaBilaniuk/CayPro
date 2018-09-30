@@ -1,0 +1,86 @@
+@import '../../../../scss/_variables.scss';
+
+.full-width {
+  background-color: $blue-dark;
+  height: 70px;
+  background-image: $blue-purple-gradient;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login {
+  width: 100%;
+  right: 0;
+  color: white;
+  text-decoration: none;
+  list-style: none;
+  display: contents;
+  justify-content: flex-end;
+  cursor: pointer;
+  &__item {
+    margin-left: 20px;
+    a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s ease-out;
+      &:hover {
+        color: $grey;
+        transition: color 0.3s ease-in;
+      }
+    }
+
+  }
+}
+
+.icon {
+  &__btn {
+    background-image: url('../../../../assets/images/person_white.png');
+    background-size: contain;
+    background-color: black;
+    height: 45px;
+    width: 45px;
+    position: relative;
+    top: 11px;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  &__email {
+    font-size: 11px;
+    color: $grey;
+    padding: 0 10px;
+  }
+}
+
+.menu {
+  color: white;
+  font-size: 20px;
+  list-style: none;
+  padding: 0;
+  &__item {
+    cursor: pointer;
+    outline: none;
+    &_project {
+      display: flex;
+      align-items: center;
+      outline: none;
+    }
+    &_icon {
+      margin-right: 20px;
+      font-size: 25px;
+      cursor: pointer;
+      transition: transform 0.3s ease-out;
+      outline: none;
+      &:hover {
+        transform: scale(1.2);
+        transition: transform 0.3s ease-in;
+      }
+    }
+    &_link {
+      outline: none;
+    }
+  }
+}

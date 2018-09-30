@@ -1,0 +1,183 @@
+@import '../../../scss/_variables.scss';
+
+.particle-network-animation {
+  animation: pulse 6s 1;
+  // animation-iteration-count: 1;
+
+}
+
+@keyframes pulse {
+  0% {
+    background-color: black;
+  }
+  /*  25% {
+      background-color: $purple-dark;
+    }
+    50% {
+      background-color: $purple-light;
+    }
+    75% {
+      background-color: $blue-text;
+    }*/
+  100% {
+    background-color: $blue-dark;
+  }
+}
+
+
+.particle-network-animation {
+  // position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: $blue-dark;
+  // background-image: linear-gradient(-135deg, #651056 0%, #3e0233 50%, #210218 100%);
+  // background-image: linear-gradient(#4f3abf 0%, #102882 30%, #03095d 60%, #03063e 100%);
+  &::before {
+    z-index: -2;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // background-image: url('../../../assets/images/sky.jpg');
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.2;
+  }
+}
+.glow {
+  z-index: -1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-image: radial-gradient(circle closest-side, rgba(255, 255, 255, 0.025), transparent);
+}
+$duration: 25s;
+.glow-1 {
+  width: 150vw;
+  height: 150vh;
+  margin-top: -75vh;
+  margin-left: -75vw;
+  animation: glow-1-move $duration linear infinite both;
+}
+@keyframes glow-1-move {
+  from {
+    transform: translate(-100%, 100%);
+  }
+  to {
+    transform: translate(100%, -100%);
+  }
+}
+.glow-2 {
+  width: 100vw;
+  height: 100vh;
+  margin-top: -50vh;
+  margin-left: -50vw;
+  animation: glow-2-move $duration linear $duration / 3 infinite both;
+}
+@keyframes glow-2-move {
+  from {
+    transform: translate(-100%, 0%);
+  }
+  to {
+    transform: translate(100%, 100%);
+  }
+}
+.glow-3 {
+  width: 120vw;
+  height: 120vh;
+  margin-top: -60vh;
+  margin-left: -60vw;
+  animation: glow-3-move $duration linear $duration / 3 * 2 infinite both;
+}
+@keyframes glow-3-move {
+  from {
+    transform: translate(100%, 100%);
+  }
+  to {
+    transform: translate(0%, -100%);
+  }
+}
+
+
+.title {
+  position: absolute;
+  z-index: 100;
+  font-size: 50px;
+  color: white;
+}
+
+.text-wrapp {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 72px;
+  z-index: 10;
+  position: absolute;
+  color: white;
+  top: 35%;
+  width: 100%;
+}
+
+.gradient-words {
+  color: $purple;
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+  background-image: $purple-gradient-linear-horizontal;
+  -webkit-background-clip: text;
+  font-size: 80px;
+  cursor: pointer;
+  background-size: 200% auto;
+  transition: background-position 0.7s ease-out;
+  &:hover {
+    transition: background-position 0.7s ease-in;
+    background-position: right center;
+  }
+
+}
+
+.search {
+  position: absolute;
+  top: 47%;
+  width: 158px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80px;
+  background-size: contain;
+  z-index: 10;
+  transition: background-image 0.3s ease-in;
+  &:hover {
+    transition: background-image 0.3s ease-out;
+  }
+}
+
+.transition-circle {
+  background-color: white;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: 1s ease-in;
+  top: 50%;
+  position: fixed;
+  overflow: hidden;
+  z-index: 0;
+  &__open {
+/*    width: 300vw;
+    height: 300vw;
+    transition: 1s ease-out;
+    top: -50%;
+    left: -50%;
+    z-index: 11;*/
+  }
+}

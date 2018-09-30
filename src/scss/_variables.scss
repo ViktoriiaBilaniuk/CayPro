@@ -1,0 +1,18 @@
+$font-path: 'fonts/';
+
+// COLORS
+
+
+$grey: #949494;
+$grey-dark: #6b6b6b;
+$purple: #ac10bf;
+$purple-dark: #3e0233;
+$purple-light: #651056;
+$blue-dark: #070966;
+$blue-text: #8081b7;
+
+$purple-gradient: linear-gradient(-45deg, #5C1271 0%, #AC10BF 50%, #E40FD4 100%);
+$purple-gradient-linear-horizontal: linear-gradient(90deg, #5c1271 0%, #ac10bf 25%, #e40fd4 50%, #ac10bf 75%, #5c1271 100%);
+$purple-gradient-linear-vertical: linear-gradient(#5c1271 0%, #ac10bf 25%, #e40fd4 50%, #ac10bf 75%, #5c1271 100%);
+$dark-purple-gradient-linear-vertical: linear-gradient(#070966 0%, #442498 25%, #a30fe4 50%, #442498 75%, #070966 100%);
+$blue-purple-gradient: linear-gradient(-90deg,  #070966 0%, #ac10bf 100%);

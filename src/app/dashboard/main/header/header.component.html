@@ -1,0 +1,27 @@
+
+<div class="full-width">
+  <div class="container">
+    <ul class="menu">
+      <li class="menu__item menu__item_project" >
+        <i class="menu__item_icon material-icons" [routerLink]="'./add'">add_circle</i>
+        <span class="menu__item_link" [routerLink]="'./projects'">Projects</span>
+      </li>
+    </ul>
+
+    <ul class="login">
+      <li class="menu__item" *ngIf="loggData?.state">
+        <a routerLink="../../auth" routerLinkActive="active">Login</a>
+      </li>
+      <li class="menu__item" *ngIf="!loggData?.state">
+        <div class="icon">
+          <button class="icon__btn" [matMenuTriggerFor]="menu">
+          </button>
+          <mat-menu #menu="matMenu">
+            <span class="icon__email" mat-button [matMenuTriggerFor]="menu">{{loggData?.user?.email}}</span>
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

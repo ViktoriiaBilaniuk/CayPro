@@ -1,0 +1,29 @@
+<div class="card">
+  <section class="card__left">
+    <div class="title">{{project.title}}</div>
+    <div class="desc">{{project.description}}</div>
+  </section>
+  <section class="card__right">
+    <ul class="icons">
+      <li class="item">
+        <i class="material-icons item__icon">
+          attach_money
+        </i>
+        <span class="item__value"> {{project.budget.from}} -  {{project.budget.to}}</span>
+      </li>
+      <li class="item">
+        <i class="material-icons item__icon">
+          schedule
+        </i>
+        <span class="item__value">{{project.time}} month</span>
+      </li>
+      <li class="item">
+        <i class="material-icons item__icon">
+          group
+        </i>
+        <span class="item__value"> {{project.team.length}} </span>
+      </li>
+      <button class="btn btn-purple details-btn" (click)="detailsClick()">details</button>
+    </ul>
+  </section>
+</div>

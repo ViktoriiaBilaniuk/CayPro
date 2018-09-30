@@ -1,0 +1,8 @@
+<div class="container">
+  <caypro-filters></caypro-filters>
+  <caypro-project-item
+    *ngFor="let project of projectService.projects | async"
+    [project]="project">
+  </caypro-project-item>
+  <caypro-spinner *ngIf="!projectService.projects | async"></caypro-spinner>
+</div>
