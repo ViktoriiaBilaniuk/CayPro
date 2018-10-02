@@ -1,7 +1,54 @@
 .container {
+  margin-bottom: 200px;
   &__title {
     margin-top: 60px;
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 30px;
   }
+}
+
+.column {
+  flex: 50%;
+  background-color: white;
+  padding: 30px;
+  padding-bottom: 80px;
+  &__right {
+    flex: 50%;
+    margin-left: 100px;
+    @media (max-width: 1600px) {
+      margin-left: 50px;
+    }
+  }
+  &__left {
+    flex: 50%;
+  }
+}
+
+.input, mat-form-field {
+  width: 100%;
+  margin-top: 40px;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+.budget {
+  margin-top: 40px;
+  &__text {
+    display: flex;
+    display: flex;
+    color: #a5a5a5;
+    margin-bottom: 10px;
+  }
+}
+
+::ng-deep .ng5-slider-pointer {
+  background-color: black !important;
+  outline: none !important;
+}
+
+::ng-deep .ng5-slider-selection {
+  background-color: black !important;
 }

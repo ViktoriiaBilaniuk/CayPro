@@ -79,3 +79,21 @@ img {
 input {
   outline: none;
 }
+
+.add-icon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 3px 0 0 7px;
+  border: 1px solid #d0d0d0;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  transform: rotate(45deg);
+  background-color: white;
+  @media (max-width: 1280px) {
+    height: 23px;
+    width: 23px;
+  }
+}

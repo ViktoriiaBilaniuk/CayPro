@@ -1,3 +1,43 @@
 <div class="container" [@fadeInAnimation]="true">
   <p class="container__title">Add new project</p>
+
+  <form class="form flex" [formGroup]="documentForm">
+    <section class="column column__left">
+      <mat-form-field
+        class="example-full-width input">
+        <input
+          matInput
+          placeholder="Title"
+          formControlName="title">
+      </mat-form-field>
+      <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Description"
+            formControlName="description">
+          </textarea>
+      </mat-form-field>
+      <mat-form-field class="">
+        <mat-select
+          formControlName="term"
+          placeholder="Term">
+          <mat-option value="{{option}}" *ngFor="let option of budgetFilterOptions">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="">
+        <mat-select
+          formControlName="type"
+          placeholder="Type">
+          <mat-option value="{{option}}" *ngFor="let option of typeOptions">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="budget">
+        <span class="budget__text"> Budget $ </span>
+        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="budgetOptions"></ng5-slider>
+      </div>
+    </section>
+    <section class="column column__right">
+      <caypro-team></caypro-team>
+    </section>
+  </form>
 </div>

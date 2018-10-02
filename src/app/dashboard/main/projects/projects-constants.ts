@@ -7,3 +7,5 @@ export const BUDGET_OPTIONS = {
   ceil: 100000,
   step: 100
 };
+
+export const TYPE_OPTIONS = ['fixed price', 'dedicated team'];

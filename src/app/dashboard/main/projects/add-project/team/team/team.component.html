@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <form [formGroup]="teamForm" class="form flex">
+    <div formArrayName="team">
+      <div class="flex_justify-content-space-between flex">
+        <div class="team__title">Project team</div>
+        <div>
+          <span class="number">{{team.controls.length}}</span>
+          <span class="add-icon" (click)="addTeamMember()">&times;</span>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+</div>
