@@ -3,5 +3,33 @@
   &__title {
     color: grey;
     line-height: 25px;
+    margin-left: 35px;
   }
+}
+
+form {
+  position: relative;
+}
+
+.count {
+  padding: 3px;
+  margin-left: 10px;
+}
+
+.item {
+  box-shadow: 1px 1px 4px 0px #808080ad;
+  margin: 20px 0px;
+  padding: 30px;
+  position: relative;
+}
+
+.close-icon {
+  top: 15px;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+
+.mat-form-field {
+  width: 100%;
 }

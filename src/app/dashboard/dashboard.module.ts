@@ -3,7 +3,7 @@ import {DashboardRoutingModule} from './dashboard-routing.module';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatChipsModule, MatDialogModule, MatInputModule, MatMenuModule, MatSelectModule} from '@angular/material';
+import {MatChipsModule, MatDialogModule, MatIconModule, MatInputModule, MatMenuModule, MatSelectModule} from '@angular/material';
 import { TestComponent } from './test/test.component';
 import {DashboardComponent} from './dashboard.component';
 import { TitleComponent } from './title/title.component';
@@ -31,7 +31,8 @@ import { TeamComponent } from './main/projects/add-project/team/team/team.compon
     MatSelectModule,
     Ng5SliderModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   declarations: [
     TestComponent,
