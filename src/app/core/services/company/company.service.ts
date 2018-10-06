@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore} from 'angularfire2/firestore';
-import {map} from 'rxjs/internal/operators';
+import {AngularFirestore} from "angularfire2/firestore";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectsService {
-  projects;
+export class CompanyService {
+  companies;
 
   constructor(private db: AngularFirestore) {
-    this.getAllProjects();
+    this.getAllCompanies();
   }
 
-  getAllProjects() {
-    this.projects = this.db.collection('projects').snapshotChanges()
+  getAllCompanies() {
+    this.companies = this.db.collection('companies').snapshotChanges()
       .map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -23,12 +22,12 @@ export class ProjectsService {
       });
   }
 
-  getProjectById(id) {
-    return this.db.collection('projects').doc(id);
+  getCompanyById(id) {
+    return this.db.collection('companies').doc(id);
   }
 
-  addProject(project) {
-    this.db.collection('projects').add(project)
+  addCompany(company) {
+    this.db.collection('companies').add(company)
       .then(data => {
         console.log(data);
       });

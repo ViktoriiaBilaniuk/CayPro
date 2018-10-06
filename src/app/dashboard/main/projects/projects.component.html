@@ -4,5 +4,5 @@
     *ngFor="let project of projectService.projects | async"
     [project]="project">
   </caypro-project-item>
-  <caypro-spinner *ngIf="!projectService.projects  | async"></caypro-spinner>
+  <caypro-spinner *ngIf="!projectService.projects | async"></caypro-spinner>
 </div>

@@ -1,0 +1,6 @@
+<div class="container">
+  <caypro-spinner *ngIf="!companyService.companies  | async"></caypro-spinner>
+  <caypro-company-item
+    *ngFor="let company of companyService.companies | async" [company]="company">
+  </caypro-company-item>
+</div>

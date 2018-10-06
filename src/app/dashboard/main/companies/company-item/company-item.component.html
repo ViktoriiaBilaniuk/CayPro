@@ -1,0 +1,17 @@
+<div class="card">
+  <section class="card__left">
+    <div class="title">{{company.name}}</div>
+    <div class="desc">{{company.description}}</div>
+  </section>
+  <section class="card__right">
+    <ul class="icons">
+      <li class="item">
+        <i class="material-icons item__icon">
+          group
+        </i>
+        <span class="item__value"> {{company.size}} </span>
+      </li>
+      <button class="btn btn-purple details-btn" (click)="detailsClick()">details</button>
+    </ul>
+  </section>
+</div>

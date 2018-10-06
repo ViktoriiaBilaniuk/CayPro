@@ -63,13 +63,14 @@
   &__item {
     cursor: pointer;
     outline: none;
+    margin-right: 30px;
     &_project {
       display: flex;
       align-items: center;
       outline: none;
     }
     &_icon {
-      margin-right: 20px;
+      margin-right: 10px;
       font-size: 25px;
       cursor: pointer;
       transition: transform 0.3s ease-out;

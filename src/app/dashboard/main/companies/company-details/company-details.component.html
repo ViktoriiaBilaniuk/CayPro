@@ -1,0 +1,53 @@
+<div class="container" [@fadeInAnimation]="true">
+  <div class="card" *ngIf="company">
+    <div class="title">
+      {{company.name}}
+    </div>
+    <hr>
+    <div class="desc">{{company.description}}</div>
+    <hr>
+    <section class="details">
+      <ul class="icons">
+        <li class="item">
+          <span class="bold">Company size</span>
+          <div class="item__split">
+            <i class="material-icons item__icon">
+              group
+            </i>
+            <span class="item__value"> {{company.size}} </span>
+          </div>
+          <div class="item__desc">
+            {{type}}
+          </div>
+        </li>
+        <li class="item">
+          <span class="bold">Projects count</span>
+          <div class="item__split">
+            <i class="material-icons item__icon">
+              collections_bookmark
+            </i>
+            <span class="item__value"> {{company.projects?.length}} projects </span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <hr>
+    <section class="location">
+      <div class="bold">Location</div>
+      <div class="team__content">
+        <div #googleMap></div>
+      </div>
+    </section>
+    <hr>
+    <section class="team">
+      <div class="team__title bold">Company projects</div>
+      <div class="team__content">
+        <div class="item"  *ngFor="let project of company.projects">
+
+        </div>
+      </div>
+    </section>
+    <hr>
+  </div>
+  <caypro-spinner *ngIf="!company"></caypro-spinner>
+</div>

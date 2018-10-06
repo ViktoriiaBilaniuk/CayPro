@@ -25,6 +25,10 @@ import { FiltersComponent } from './main/projects/filters/filters.component';
 import {Ng5SliderModule} from 'ng5-slider';
 import { AddProjectComponent } from './main/projects/add-project/add-project.component';
 import { TeamComponent } from './main/projects/add-project/team/team.component';
+import { CompaniesComponent } from './main/companies/companies.component';
+import { AddCompanyComponent } from './main/companies/add-company/add-company.component';
+import { CompanyItemComponent } from './main/companies/company-item/company-item.component';
+import { CompanyDetailsComponent } from './main/companies/company-details/company-details.component';
 
 
 @NgModule({
@@ -55,7 +59,11 @@ import { TeamComponent } from './main/projects/add-project/team/team.component';
     ProjectCostComponent,
     FiltersComponent,
     AddProjectComponent,
-    TeamComponent
+    TeamComponent,
+    CompaniesComponent,
+    AddCompanyComponent,
+    CompanyItemComponent,
+    CompanyDetailsComponent
   ],
   entryComponents: [
     ProjectCostComponent,
