@@ -1,0 +1,62 @@
+<div class="wrapper">
+  <form [formGroup]="teamForm" class="form">
+    <div formArrayName="team">
+      <div class="flex">
+        <div class="flex_justify-content-space-between flex">
+          <div class="team__title">Project team</div>
+          <div class="count">
+            <span class="number">{{team.controls.length}}</span>
+            <span class="add-icon" (click)="addTeamMember()">&times;</span>
+          </div>
+        </div>
+      </div>
+      <div class="item" *ngFor="let item of team.controls; let i = index">
+        <span class="close-icon" (click)="removeTeamMember(i)">&times;</span>
+        <div [formGroupName]="i">
+          <mat-form-field class="">
+            <mat-select
+              formControlName="category"
+              placeholder="Category">
+              <mat-option value="{{option}}" *ngFor="let option of categoryFilterOptions">{{option}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field
+            class="example-full-width input input__100">
+            <input
+              matInput
+              type="number"
+              required
+              formControlName="experience"
+              placeholder="Experience">
+          </mat-form-field>
+
+          <mat-form-field class="">
+            <mat-chip-list #chipList>
+              <mat-chip
+                *ngFor="let tag of tags[i]"
+                [selectable]="false"
+                [removable]="true"
+                (removed)="removeTag(tag, i)">
+                {{tag}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input
+                placeholder="Tags"
+                #tagsInput
+                [formControl]="this.teamForm.controls['team']['controls'][i].controls['skills']"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matAutocomplete]="autoTags"/>
+            </mat-chip-list>
+            <mat-autocomplete #autoTags="matAutocomplete" (optionSelected)="selectTag($event, i)">
+              <mat-option *ngFor="let option of filteredOptions[i] | async" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

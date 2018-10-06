@@ -2,8 +2,16 @@ import {NgModule} from '@angular/core';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
-import {FormsModule} from '@angular/forms';
-import {MatChipsModule, MatDialogModule, MatInputModule, MatMenuModule, MatSelectModule} from '@angular/material';
+import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {
+  MatAutocompleteModule,
+  MatChipsModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatSelectModule
+} from '@angular/material';
 import { TestComponent } from './test/test.component';
 import {DashboardComponent} from './dashboard.component';
 import { TitleComponent } from './title/title.component';
@@ -16,6 +24,7 @@ import { ProjectCostComponent } from './main/projects/project-details/project-co
 import { FiltersComponent } from './main/projects/filters/filters.component';
 import {Ng5SliderModule} from 'ng5-slider';
 import { AddProjectComponent } from './main/projects/add-project/add-project.component';
+import { TeamComponent } from './main/projects/add-project/team/team.component';
 
 
 @NgModule({
@@ -30,6 +39,9 @@ import { AddProjectComponent } from './main/projects/add-project/add-project.com
     MatSelectModule,
     Ng5SliderModule,
     MatMenuModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatAutocompleteModule,
   ],
   declarations: [
     TestComponent,
@@ -42,11 +54,14 @@ import { AddProjectComponent } from './main/projects/add-project/add-project.com
     ProjectDetailsComponent,
     ProjectCostComponent,
     FiltersComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    TeamComponent
   ],
   entryComponents: [
     ProjectCostComponent,
   ],
-  providers: [],
+  providers: [
+    FormBuilder
+  ],
 })
 export class DashboardModule { }
