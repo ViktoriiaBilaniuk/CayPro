@@ -1,12 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {CompanyService} from "../../../../core/services/company/company.service";
-import {SnackBarService} from "../../../../core/services/snackbar/snack-bar.service";
-import {fadeInAnimation} from "../../../../shared/animations/fade-in.animation";
-import {} from "@types/googlemaps";
-
-
-declare var google;
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {CompanyService} from '../../../../core/services/company/company.service';
+import {SnackBarService} from '../../../../core/services/snackbar/snack-bar.service';
+import {fadeInAnimation} from '../../../../shared/animations/fade-in.animation';
 
 @Component({
   selector: 'caypro-company-details',
@@ -16,9 +12,8 @@ declare var google;
 })
 
 
-export class CompanyDetailsComponent implements OnInit {
-  @ViewChild('googleMap') gmapElement: any;
-  map: google.maps.Map;
+export class CompanyDetailsComponent implements OnInit, AfterViewInit {
+
   company;
 
   constructor(
@@ -28,6 +23,9 @@ export class CompanyDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     this.getRouteParams();
   }
 
@@ -42,27 +40,12 @@ export class CompanyDetailsComponent implements OnInit {
     companyRef.ref.get().then( (com) => {
       if (com.exists) {
         this.company = com.data();
-
-        setTimeout(() => {
-          this.initMAp();
-        }, 3000);
-
       } else {
         this.snackbar.show('Sorry, no project!');
       }
     }).catch((error) => {
       this.snackbar.show(error);
     });
-  }
-
-  initMAp() {
-    console.log(this.gmapElement);
-    const mapProp = {
-      center: new google.maps.LatLng(18.5793, 73.8143),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
 
   get type() {

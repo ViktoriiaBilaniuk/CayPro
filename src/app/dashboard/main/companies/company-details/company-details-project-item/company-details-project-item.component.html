@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class="title" (click)="showContent = !showContent">{{project.title}}</div>
+  <div class="content" [ngClass]="{'active': showContent}">
+    <div>
+      {{project.description}}
+    </div>
+    <section class="details">
+      <ul class="icons">
+        <li class="item">
+          <span class="bold">Budget</span>
+          <div class="item__split">
+            <i class="material-icons item__icon">
+              attach_money
+            </i>
+            <span class="item__value"> {{project.budget.from}} -  {{project.budget.to}} </span>
+          </div>
+          <div class="item__desc">
+            {{project.type}}
+          </div>
+        </li>
+        <li class="item">
+          <span class="bold">Time</span>
+          <div class="item__split">
+            <i class="material-icons item__icon">
+              schedule
+            </i>
+            <span class="item__value"> {{project.time.from}} - {{project.time.to}} months</span>
+          </div>
+          <div class="item__desc">
+            Long term project
+          </div>
+        </li>
+      </ul>
+      <div>
+        <div class="bold tech">Technologies:</div>
+        <mat-chip-list>
+          <mat-chip *ngFor="let skill of project.skills">{{skill}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </section>
+
+  </div>
+</div>

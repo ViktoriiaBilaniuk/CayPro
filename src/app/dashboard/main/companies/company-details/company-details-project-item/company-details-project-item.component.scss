@@ -1,0 +1,66 @@
+
+.content {
+  height: 0%;
+  opacity: 1;
+  transition: all 0.5s ease-out;
+}
+.active {
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.item {
+  width: 50%;
+  font-size: 14px;
+  line-height: 30px;
+  &__split {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+    line-height: 30px;
+  }
+  &__icon {
+    color: grey;
+    margin-right: 10px;
+    line-height: 30px;
+  }
+}
+
+.icons {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  margin: 20px 0;
+  .item {
+    width: 50%;
+    font-size: 14px;
+    line-height: 30px;
+    &__split {
+      display: flex;
+      justify-content: flex-start;
+      font-size: 14px;
+      line-height: 30px;
+    }
+    &__icon {
+      color: grey;
+      margin-right: 10px;
+      line-height: 30px;
+    }
+  }
+}
+
+.tech {
+  margin-bottom: 15px;
+  display: block;
+}
