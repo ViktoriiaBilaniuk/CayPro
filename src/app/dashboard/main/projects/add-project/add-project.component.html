@@ -1,4 +1,4 @@
-<div class="container" [@fadeInAnimation]="true">
+<div class="container" [@fadeInAnimation]="true" [ngClass]="{'portfolio': isPortfolio}">
   <p class="container__title">Add new project</p>
 
   <form class="form flex" [formGroup]="documentForm">
@@ -42,12 +42,12 @@
         </ng5-slider>
       </div>
     </section>
-    <section class="column column__right">
+    <section class="column column__right" *ngIf="!isPortfolio">
       <caypro-team [formSubmitted]="formSubmitted" (onFormSave)="onFormSave($event)"></caypro-team>
     </section>
   </form>
   <div class="buttons flex">
-    <button class="btn btn-gray">Cancel</button>
+    <button class="btn btn-gray" (click)="close()">Cancel</button>
     <button class="btn btn-purple" type="submit" (click)="save()">Save</button>
   </div>
 </div>

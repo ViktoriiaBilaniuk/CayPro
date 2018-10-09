@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {fadeInAnimation} from '../../../../shared/animations/fade-in.animation';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ValidationService} from '../../../../core/services/validation.service';
 import {BUDGET_MAX_VALUE, BUDGET_MIN_VALUE, BUDGET_OPTIONS, TERM_FILTER_OPTIONS, TYPE_OPTIONS} from '../projects-constants';
 import {ProjectsService} from "../../../../core/services/projects/projects.service";
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'caypro-add-project',
@@ -19,13 +20,20 @@ export class AddProjectComponent implements OnInit {
   budgetOptions = BUDGET_OPTIONS;
   minValue = BUDGET_MIN_VALUE;
   maxValue = BUDGET_MAX_VALUE;
-  formSubmitted =false;
+  formSubmitted = false;
+  isPortfolio;
 
   constructor(
+    public dialogRef: MatDialogRef<AddProjectComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
     private validation: ValidationService,
     private projectService: ProjectsService
-  ) { }
+  ) {
+    if (data.isPortfolio) {
+      this.isPortfolio = true;
+    }
+  }
 
   ngOnInit() {
     this.createForm();
@@ -46,7 +54,18 @@ export class AddProjectComponent implements OnInit {
   }
 
   save() {
-    this.formSubmitted = true;
+    if (!this.isPortfolio) {
+      this.formSubmitted = true;
+    } else {
+      this.dialogRef.close(this.documentForm.value);
+
+    }
+  }
+
+  close(): void {
+    if (this.isPortfolio) {
+      this.dialogRef.close();
+    }
   }
 
   budgetFromChange(event) {

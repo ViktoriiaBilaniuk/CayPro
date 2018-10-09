@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../../../core/services/auth/auth.service';
-import {tap} from 'rxjs/internal/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'caypro-header',
@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isLoggedInSubscription$;
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -25,6 +26,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   logout() {
     this.authService.logout();
+  }
+
+  goToPortfolio() {
+    this.router.navigate(['./portfolio']);
   }
 
   ngOnDestroy() {

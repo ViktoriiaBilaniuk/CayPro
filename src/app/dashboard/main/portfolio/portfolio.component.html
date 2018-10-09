@@ -1,0 +1,78 @@
+<div class="container">
+  <p class="container__title">Company portfolio</p>
+  <form class="form flex" [formGroup]="portfolioForm">
+    <section class="column column__left">
+      <mat-form-field
+        class="example-full-width input">
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name">
+      </mat-form-field>
+      <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Description"
+            formControlName="description">
+          </textarea>
+      </mat-form-field>
+      <mat-form-field
+        class="example-full-width input">
+        <input
+          matInput
+          type="number"
+          placeholder="Company size"
+          formControlName="size">
+      </mat-form-field>
+    </section>
+    <section class="column column__right">
+      <mat-form-field>
+        <mat-chip-list #chipList>
+          <mat-chip
+            *ngFor="let tag of tags"
+            [selectable]="false"
+            [removable]="true"
+            (removed)="removeTag(tag)">
+            {{tag}}
+            <mat-icon matChipRemove>cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="Set main skills"
+            #tagsInput
+            [formControl]="this.portfolioForm.controls['skills']"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matAutocomplete]="autoTags"/>
+          <mat-autocomplete #autoTags="matAutocomplete" (optionSelected)="selectedTag($event)">
+            <mat-option *ngFor="let option of tagsFilteredOptions | async" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-chip-list>
+      </mat-form-field>
+      <div class="projects-title">
+        <div class="projects-title__main">Company projects</div>
+        <div class="flex">
+          <span class="projects-title__add">Add company project</span>
+          <i class="projects-title__icon material-icons" (click)="addProjectClick()">add_circle</i>
+        </div>
+      </div>
+      <div class="projects" *ngIf="projects.length; else noProject">
+        <div *ngFor="let project of projects; let i = index" class="projects__item">
+          <span class="projects__number">{{i + 1}} )</span>
+          <span class="projects__title">{{project.title}}</span>
+        </div>
+      </div>
+      <ng-template #noProject>
+        <div class="no-project">
+          No projects yet ...
+        </div>
+      </ng-template>
+    </section>
+  </form>
+  <div class="buttons flex">
+    <button class="btn btn-gray">Cancel</button>
+    <button class="btn btn-purple" type="submit" (click)="save()">Save</button>
+  </div>
+
+</div>

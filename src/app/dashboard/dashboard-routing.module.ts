@@ -7,9 +7,10 @@ import {MainComponent} from './main/main.component';
 import {ProjectDetailsComponent} from './main/projects/project-details/project-details.component';
 import {ProjectsComponent} from './main/projects/projects.component';
 import {AddProjectComponent} from './main/projects/add-project/add-project.component';
-import {CompaniesComponent} from "./main/companies/companies.component";
-import {AddCompanyComponent} from "./main/companies/add-company/add-company.component";
-import {CompanyDetailsComponent} from "./main/companies/company-details/company-details.component";
+import {CompaniesComponent} from './main/companies/companies.component';
+import {AddCompanyComponent} from './main/companies/add-company/add-company.component';
+import {CompanyDetailsComponent} from './main/companies/company-details/company-details.component';
+import {PortfolioComponent} from './main/portfolio/portfolio.component';
 
 export const DASHBOARD_ROUTES: Routes = [
   {path: '', component: DashboardComponent, children: [
@@ -24,6 +25,7 @@ export const DASHBOARD_ROUTES: Routes = [
           {path: 'companies', component: CompaniesComponent},
           {path: 'company/:id', component: CompanyDetailsComponent},
           {path: 'add-company', component: AddCompanyComponent},
+          {path: 'portfolio', component: PortfolioComponent},
           {path: '', pathMatch: 'full', redirectTo: 'projects'},
         ]
       },

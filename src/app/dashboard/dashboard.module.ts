@@ -29,7 +29,8 @@ import { CompaniesComponent } from './main/companies/companies.component';
 import { AddCompanyComponent } from './main/companies/add-company/add-company.component';
 import { CompanyItemComponent } from './main/companies/company-item/company-item.component';
 import { CompanyDetailsComponent } from './main/companies/company-details/company-details.component';
-
+import { CompanyDetailsProjectItemComponent } from './main/companies/company-details/company-details-project-item/company-details-project-item.component';
+import { PortfolioComponent } from './main/portfolio/portfolio.component';
 
 @NgModule({
   imports: [
@@ -63,13 +64,16 @@ import { CompanyDetailsComponent } from './main/companies/company-details/compan
     CompaniesComponent,
     AddCompanyComponent,
     CompanyItemComponent,
-    CompanyDetailsComponent
+    CompanyDetailsComponent,
+    CompanyDetailsProjectItemComponent,
+    PortfolioComponent,
   ],
   entryComponents: [
     ProjectCostComponent,
+    AddProjectComponent
   ],
   providers: [
-    FormBuilder
+    FormBuilder,
   ],
 })
 export class DashboardModule { }

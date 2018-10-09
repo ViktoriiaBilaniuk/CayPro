@@ -11,16 +11,17 @@
       </li>
     </ul>
 
+
     <ul class="login">
       <li class="menu__item" *ngIf="loggData?.state">
         <a routerLink="../../auth" routerLinkActive="active">Login</a>
       </li>
       <li class="menu__item" *ngIf="!loggData?.state">
         <div class="icon">
-          <button class="icon__btn" [matMenuTriggerFor]="menu">
-          </button>
+          <button class="icon__btn" [matMenuTriggerFor]="menu"></button>
           <mat-menu #menu="matMenu">
-            <span class="icon__email" mat-button [matMenuTriggerFor]="menu">{{loggData?.user?.email}}</span>
+            <span class="icon__email" mat-button>{{loggData?.user?.email}}</span>
+            <button mat-menu-item [routerLink]="'./portfolio'">Portfolio</button>
             <button mat-menu-item (click)="logout()">Logout</button>
           </mat-menu>
         </div>

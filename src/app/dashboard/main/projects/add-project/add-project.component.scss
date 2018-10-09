@@ -61,3 +61,11 @@ textarea {
   margin-top: 40px;
   justify-content: space-between;
 }
+
+.portfolio, .container {
+  margin: 0px;
+  width: 100%;
+  mat-form-field, .container__title, .buttons {
+    margin: 0px;
+  }
+}

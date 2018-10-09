@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "angularfire2/firestore";
+import {SnackBarService} from '../snackbar/snack-bar.service';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,10 @@ import {AngularFirestore} from "angularfire2/firestore";
 export class CompanyService {
   companies;
 
-  constructor(private db: AngularFirestore) {
+  constructor(
+    private db: AngularFirestore,
+    private router: Router,
+    private snackBar: SnackBarService) {
     this.getAllCompanies();
   }
 
@@ -30,6 +35,10 @@ export class CompanyService {
     this.db.collection('companies').add(company)
       .then(data => {
         console.log(data);
-      });
+        this.router.navigate(['./dashboard/main/projects']);
+        this.snackBar.show('Your portfolio added!');
+      }, (err => {
+        this.snackBar.show(err);
+      }));
   }
 }
