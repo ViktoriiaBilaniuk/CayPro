@@ -1,10 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {fadeInAnimation} from '../../../../shared/animations/fade-in.animation';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ValidationService} from '../../../../core/services/validation.service';
 import {BUDGET_MAX_VALUE, BUDGET_MIN_VALUE, BUDGET_OPTIONS, TERM_FILTER_OPTIONS, TYPE_OPTIONS} from '../projects-constants';
-import {ProjectsService} from "../../../../core/services/projects/projects.service";
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {ProjectsService} from '../../../../core/services/projects/projects.service';
 
 @Component({
   selector: 'caypro-add-project',
@@ -13,6 +12,8 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
   animations: [fadeInAnimation],
 })
 export class AddProjectComponent implements OnInit {
+  @Input() isPortfolio;
+  @Output() onProjectSave = new EventEmitter();
 
   documentForm: FormGroup;
   budgetFilterOptions = TERM_FILTER_OPTIONS;
@@ -21,18 +22,11 @@ export class AddProjectComponent implements OnInit {
   minValue = BUDGET_MIN_VALUE;
   maxValue = BUDGET_MAX_VALUE;
   formSubmitted = false;
-  isPortfolio;
 
   constructor(
-    public dialogRef: MatDialogRef<AddProjectComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
     private validation: ValidationService,
-    private projectService: ProjectsService
-  ) {
-    if (data.isPortfolio) {
-      this.isPortfolio = true;
-    }
+    private projectService: ProjectsService) {
   }
 
   ngOnInit() {
@@ -57,14 +51,13 @@ export class AddProjectComponent implements OnInit {
     if (!this.isPortfolio) {
       this.formSubmitted = true;
     } else {
-      this.dialogRef.close(this.documentForm.value);
-
+      this.onProjectSave.emit(this.documentForm.value);
     }
   }
 
   close(): void {
     if (this.isPortfolio) {
-      this.dialogRef.close();
+      this.onProjectSave.emit();
     }
   }
 

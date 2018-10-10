@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from 'angularfire2/firestore';
-import {map} from 'rxjs/internal/operators';
+import {SnackBarService} from '../snackbar/snack-bar.service';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,10 @@ import {map} from 'rxjs/internal/operators';
 export class ProjectsService {
   projects;
 
-  constructor(private db: AngularFirestore) {
+  constructor(
+    private db: AngularFirestore,
+    private snackBar: SnackBarService,
+    private router: Router) {
     this.getAllProjects();
   }
 
@@ -30,7 +34,8 @@ export class ProjectsService {
   addProject(project) {
     this.db.collection('projects').add(project)
       .then(data => {
-        console.log(data);
+        this.router.navigate(['./dashboard/main/projects']);
+        this.snackBar.show('Your project published!');
       });
   }
 }
