@@ -5,7 +5,6 @@ import {map, startWith} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 import {SKILLS_OPTIONS} from '../projects/projects-constants';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {PortfolioProjectsComponent} from './portfolio-projects/portfolio-projects.component';
 import {AddProjectComponent} from '../projects/add-project/add-project.component';
 import {CompanyService} from '../../../core/services/company/company.service';
 
