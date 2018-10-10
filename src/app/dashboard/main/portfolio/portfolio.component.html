@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [@fadeInAnimation]="true">
   <p class="container__title">Company portfolio</p>
   <form class="form flex" [formGroup]="portfolioForm">
     <section class="column column__left">
@@ -57,10 +57,13 @@
           <i class="projects-title__icon material-icons" (click)="addProjectClick()">add_circle</i>
         </div>
       </div>
-      <div class="projects" *ngIf="projects.length; else noProject">
-        <div *ngFor="let project of projects; let i = index" class="projects__item">
-          <span class="projects__number">{{i + 1}} )</span>
-          <span class="projects__title">{{project.title}}</span>
+      <div *ngIf="projects.length; else noProject">
+        <div class="projects" *ngFor="let project of projects; let i = index" >
+          <div class="projects__item">
+            <span class="close-icon" (click)="removeProject(i)">&times;</span>
+            <span class="projects__number">{{i + 1}} )</span>
+            <span class="projects__title">{{project.title}}</span>
+          </div>
         </div>
       </div>
       <ng-template #noProject>
