@@ -31,6 +31,7 @@ import { CompanyItemComponent } from './main/companies/company-item/company-item
 import { CompanyDetailsComponent } from './main/companies/company-details/company-details.component';
 import { CompanyDetailsProjectItemComponent } from './main/companies/company-details/company-details-project-item/company-details-project-item.component';
 import { PortfolioComponent } from './main/portfolio/portfolio.component';
+import { PortfolioProjectsComponent } from './main/portfolio/portfolio-projects/portfolio-projects.component';
 
 @NgModule({
   imports: [
@@ -67,10 +68,11 @@ import { PortfolioComponent } from './main/portfolio/portfolio.component';
     CompanyDetailsComponent,
     CompanyDetailsProjectItemComponent,
     PortfolioComponent,
+    PortfolioProjectsComponent,
   ],
   entryComponents: [
     ProjectCostComponent,
-    AddProjectComponent
+    PortfolioProjectsComponent
   ],
   providers: [
     FormBuilder,

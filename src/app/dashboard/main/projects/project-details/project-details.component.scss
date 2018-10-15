@@ -69,6 +69,7 @@ hr {
   &__content {
     display: flex;
     align-content: flex-start;
+    flex-wrap: wrap;
   }
   &__title {
     width: 100%;
@@ -81,6 +82,7 @@ hr {
     border: 1px solid #efefef;
     padding: 20px;
     background-color: #9e9e9e0f;
+    margin: 20px 10px;
     &__title {
 
     }
@@ -103,7 +105,7 @@ hr {
   }
   &__content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 
   }
 }

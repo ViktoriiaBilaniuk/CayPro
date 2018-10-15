@@ -9,6 +9,8 @@
   margin-bottom: 10px;
   &__left {
     width: 75%;
+    max-height: 133px;
+    overflow: hidden;
   }
   &__right {
     width: 20%;

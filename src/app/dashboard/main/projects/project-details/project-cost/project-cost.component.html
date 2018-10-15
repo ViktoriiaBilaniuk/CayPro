@@ -1,15 +1,14 @@
 <div class="wrapper">
-  <section class="first" *ngIf="firstPage">
-    <div class="title">Contacts of sales manager of this project costs <b class="title__heighlight">20</b> coins</div>
-    <button class="btn btn-purple" (click)="firstGetContactsClick()">Get contacts</button>
-  </section>
+  <section class="first">
+    <mat-form-field>
+          <textarea
+            matInput
+            [(ngModel)]="description"
+            placeholder="Describe your proposal">
+          </textarea>
+    </mat-form-field>
 
-  <section class="second" *ngIf="!firstPage">
-    <div class="title">
-      <span> You have <b class="title__heighlight">348</b> coins </span>
-      <span> <a href="">   (get more)</a> </span>
-    </div>
-    <button class="btn btn-purple" (click)="secondGetContactsClick()">Get contacts</button>
-  </section>
 
+    <button class="btn btn-purple" (click)="send()">Send</button>
+  </section>
 </div>

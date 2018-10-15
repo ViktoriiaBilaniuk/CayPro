@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {SnackBarService} from "../../../../../core/services/snackbar/snack-bar.service";
 
 @Component({
   selector: 'caypro-project-cost',
@@ -7,22 +8,25 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
   styleUrls: ['./project-cost.component.scss']
 })
 export class ProjectCostComponent implements OnInit {
-  firstPage = true;
+  description;
 
   constructor(
     public dialogRef: MatDialogRef<ProjectCostComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private snackBar: SnackBarService
   ) { }
 
   ngOnInit() {
   }
 
-  firstGetContactsClick() {
-    this.firstPage = false;
+  send(){
+    this.close();
+    this.snackBar.show('Proposal have been sent!');
+
   }
 
-  secondGetContactsClick() {
-    this.dialogRef.close('show');
+  close() {
+    this.dialogRef.close();
   }
 
 }

@@ -7,10 +7,13 @@ import {SKILLS_OPTIONS} from '../projects/projects-constants';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {AddProjectComponent} from '../projects/add-project/add-project.component';
 import {CompanyService} from '../../../core/services/company/company.service';
+import {PortfolioProjectsComponent} from './portfolio-projects/portfolio-projects.component';
+import {fadeInAnimation} from '../../../shared/animations/fade-in.animation';
 
 @Component({
   selector: 'caypro-portfolio',
   templateUrl: './portfolio.component.html',
+  animations: [fadeInAnimation],
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit {
@@ -85,9 +88,8 @@ export class PortfolioComponent implements OnInit {
   }
 
   addProjectClick() {
-    const dialogRef = this.dialog.open(AddProjectComponent, {
+    const dialogRef = this.dialog.open(PortfolioProjectsComponent, {
       width: '600px',
-      data: {isPortfolio: true},
       autoFocus: false
     });
 
@@ -104,6 +106,10 @@ export class PortfolioComponent implements OnInit {
     company['projects'] = this.projects;
     console.log(company);
     this.companyService.addCompany(company);
+  }
+
+  removeProject(index) {
+    this.projects.splice(index, 1);
   }
 
 }

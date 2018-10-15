@@ -78,6 +78,7 @@ textarea {
   &__item {
     margin: 10px 0;
     cursor: pointer;
+    position: relative;
   }
 
   &__number {
@@ -95,4 +96,12 @@ textarea {
   width: 100%;
   color: #7b7b7b;
   margin: 20px 0px;
+}
+
+.close-icon {
+  top: -3px;
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+  font-size: 20px;
 }
