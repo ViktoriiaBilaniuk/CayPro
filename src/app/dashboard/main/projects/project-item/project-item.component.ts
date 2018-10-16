@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProjectsService} from '../../../../core/services/projects/projects.service';
-import {SnackBarService} from '../../../../core/services/snackbar/snack-bar.service';
 
 @Component({
   selector: 'caypro-project-item',

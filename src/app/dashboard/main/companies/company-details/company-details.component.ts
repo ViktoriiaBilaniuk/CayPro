@@ -1,8 +1,9 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CompanyService} from '../../../../core/services/company/company.service';
 import {SnackBarService} from '../../../../core/services/snackbar/snack-bar.service';
 import {fadeInAnimation} from '../../../../shared/animations/fade-in.animation';
+import {SuitableService} from "../../../../core/services/suitable/suitable.service";
 
 @Component({
   selector: 'caypro-company-details',
@@ -18,8 +19,10 @@ export class CompanyDetailsComponent implements OnInit, AfterViewInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private companyService: CompanyService,
     private snackbar: SnackBarService,
+    private suitableService: SuitableService,
   ) { }
 
   ngOnInit() {
@@ -54,6 +57,12 @@ export class CompanyDetailsComponent implements OnInit, AfterViewInit {
       case ( this.company.size > 10 && this.company.size < 80): return 'medium company';
       case ( this.company.size > 80): return 'big company';
     }
+  }
+
+  openSuitablePage() {
+    this.suitableService.company = this.company;
+    this.suitableService.navigateFrom = 'company';
+    this.router.navigate(['../../suitable'], {relativeTo: this.route});
   }
 
 }

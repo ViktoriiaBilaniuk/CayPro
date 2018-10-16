@@ -32,6 +32,7 @@ import { CompanyDetailsComponent } from './main/companies/company-details/compan
 import { CompanyDetailsProjectItemComponent } from './main/companies/company-details/company-details-project-item/company-details-project-item.component';
 import { PortfolioComponent } from './main/portfolio/portfolio.component';
 import { PortfolioProjectsComponent } from './main/portfolio/portfolio-projects/portfolio-projects.component';
+import { SuitableComponent } from './main/suitable/suitable.component';
 
 @NgModule({
   imports: [
@@ -69,6 +70,7 @@ import { PortfolioProjectsComponent } from './main/portfolio/portfolio-projects/
     CompanyDetailsProjectItemComponent,
     PortfolioComponent,
     PortfolioProjectsComponent,
+    SuitableComponent,
   ],
   entryComponents: [
     ProjectCostComponent,
