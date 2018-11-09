@@ -16,6 +16,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   showContacts = false;
   project;
+  myProjectsPage;
 
   constructor(
     public dialog: MatDialog,
@@ -31,6 +32,10 @@ export class ProjectDetailsComponent implements OnInit {
   getRouteParams() {
     this.route.params.subscribe(params => {
       this.getProject(params.id);
+    });
+
+    this.route.queryParams.subscribe(params => {
+      this.myProjectsPage = params.myProjectsPage;
     });
   }
 
@@ -59,6 +64,10 @@ export class ProjectDetailsComponent implements OnInit {
         this.showContacts = true;
       }
     });
+  }
+
+  generateBestList() {
+
   }
 
 }

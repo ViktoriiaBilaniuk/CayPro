@@ -9,6 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class ProjectItemComponent implements OnInit {
 
   @Input() project;
+  @Input() myProjectsPage;
 
   constructor(
     private router: Router,
@@ -18,7 +19,9 @@ export class ProjectItemComponent implements OnInit {
   }
 
   detailsClick() {
-    this.router.navigate(['../project', this.project.id], { relativeTo: this.route });
+    const queryParams = { myProjectsPage: this.myProjectsPage };
+    this.router.navigate(['../project', this.project.id],
+      {queryParams: queryParams, relativeTo: this.route });
   }
 
 }

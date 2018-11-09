@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="header">My projects</div>
+  <div>
+    <caypro-project-item
+      *ngFor="let project of projects"
+      [myProjectsPage]="true"
+      [project]="project">
+    </caypro-project-item>
+  </div>
+
+  <ng-template #loading><caypro-spinner ></caypro-spinner> </ng-template>
+
+</div>

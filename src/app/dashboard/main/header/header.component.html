@@ -11,7 +11,6 @@
       </li>
     </ul>
 
-
     <ul class="login">
       <li class="menu__item" *ngIf="loggData?.state">
         <a routerLink="../../auth" routerLinkActive="active">Login</a>
@@ -21,8 +20,9 @@
           <button class="icon__btn" [matMenuTriggerFor]="menu"></button>
           <mat-menu #menu="matMenu">
             <span class="icon__email" mat-button>{{loggData?.user?.email}}</span>
-            <button mat-menu-item [routerLink]="'./portfolio'">Portfolio</button>
-            <button mat-menu-item (click)="logout()">Logout</button>
+            <button mat-menu-item [routerLink]="'./portfolio'">My portfolio</button>
+            <button mat-menu-item [routerLink]="'./my-projects'">My projects</button>
+            <button mat-menu-item [routerLink]="'../../../auth'">Logout</button>
           </mat-menu>
         </div>
       </li>

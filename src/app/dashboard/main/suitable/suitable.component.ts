@@ -18,7 +18,7 @@ export class SuitableComponent implements OnInit {
   navigateFrom;
   projects;
   companySkills = [];
-  constantSkills = SKILLS_OPTIONS;
+  constantSkills = SKILLS_OPTIONS as any;
   selectedProject= [];
 
   constructor(

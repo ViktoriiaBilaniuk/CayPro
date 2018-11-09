@@ -33,6 +33,7 @@ import { CompanyDetailsProjectItemComponent } from './main/companies/company-det
 import { PortfolioComponent } from './main/portfolio/portfolio.component';
 import { PortfolioProjectsComponent } from './main/portfolio/portfolio-projects/portfolio-projects.component';
 import { SuitableComponent } from './main/suitable/suitable.component';
+import { MyProjectsComponent } from './main/my-projects/my-projects.component';
 
 @NgModule({
   imports: [
@@ -71,6 +72,7 @@ import { SuitableComponent } from './main/suitable/suitable.component';
     PortfolioComponent,
     PortfolioProjectsComponent,
     SuitableComponent,
+    MyProjectsComponent,
   ],
   entryComponents: [
     ProjectCostComponent,

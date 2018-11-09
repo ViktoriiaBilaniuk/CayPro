@@ -2,7 +2,7 @@
   <p class="container__title">Add new project</p>
 
   <form class="form flex" [formGroup]="documentForm">
-    <section class="column column__left">
+    <section class="column column__left" [ngClass]="{'column__portf': isPortfolio}">
       <mat-form-field
         class="example-full-width input">
         <input

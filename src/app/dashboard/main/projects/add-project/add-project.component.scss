@@ -17,6 +17,10 @@
   background-color: white;
   padding: 30px;
   padding-bottom: 80px;
+  &__portf {
+    padding: 10px 30px;
+    padding-bottom: 0px;
+  }
   &__right {
     flex: 50%;
     margin-left: 100px;

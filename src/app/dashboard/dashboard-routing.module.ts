@@ -12,6 +12,7 @@ import {AddCompanyComponent} from './main/companies/add-company/add-company.comp
 import {CompanyDetailsComponent} from './main/companies/company-details/company-details.component';
 import {PortfolioComponent} from './main/portfolio/portfolio.component';
 import {SuitableComponent} from "./main/suitable/suitable.component";
+import {MyProjectsComponent} from "./main/my-projects/my-projects.component";
 
 export const DASHBOARD_ROUTES: Routes = [
   {path: '', component: DashboardComponent, children: [
@@ -27,6 +28,7 @@ export const DASHBOARD_ROUTES: Routes = [
           {path: 'company/:id', component: CompanyDetailsComponent},
           {path: 'add-company', component: AddCompanyComponent},
           {path: 'portfolio', component: PortfolioComponent},
+          {path: 'my-projects', component: MyProjectsComponent},
           {path: 'suitable', component: SuitableComponent},
           {path: '', pathMatch: 'full', redirectTo: 'projects'},
         ]

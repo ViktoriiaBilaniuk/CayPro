@@ -58,7 +58,7 @@
       </div>
     </section>
     <hr>
-    <section class="bottom">
+    <section class="bottom" *ngIf="!myProjectsPage">
       <button *ngIf="!showContacts" class="btn btn-purple details-btn" (click)="openCostPopup()">Send proposal</button>
       <div *ngIf="showContacts" class="contacts">
         <div class="contacts__content">
@@ -78,6 +78,16 @@
         </div>
       </div>
     </section>
+
+
+
+    <section class="bottom" *ngIf="myProjectsPage">
+      <button class="btn btn-purple details-btn" (click)="generateBestList()">Generate best companies list</button>
+
+    </section>
+
+
+
   </div>
   <caypro-spinner *ngIf="!project"></caypro-spinner>
 </div>
