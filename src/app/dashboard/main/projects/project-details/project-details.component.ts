@@ -17,6 +17,7 @@ export class ProjectDetailsComponent implements OnInit {
   showContacts = false;
   project;
   myProjectsPage;
+  bestCompanies = [];
 
   constructor(
     public dialog: MatDialog,

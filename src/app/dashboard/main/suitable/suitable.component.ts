@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SuitableService} from "../../../core/services/suitable/suitable.service";
 import * as tf from '@tensorflow/tfjs';
 import {SKILLS_OPTIONS} from "../projects/projects-constants";
@@ -12,37 +12,33 @@ import {CompanyService} from "../../../core/services/company/company.service";
 })
 export class SuitableComponent implements OnInit {
 
-  prediction: any;
-  linearModel: tf.Sequential;
-  company;
   navigateFrom;
-  projects;
-  companySkills = [];
+  companies;
+  projectSkills = [];
   constantSkills = SKILLS_OPTIONS as any;
-  selectedProject= [];
+  @Input() project;
 
   constructor(
     private suitableService: SuitableService,
     private projectsService: ProjectsService,
+    private companyServoce: CompanyService
   ) { }
 
   ngOnInit() {
-    this.train();
-    this.company = this.suitableService.company;
-    console.log(this.company);
     this.navigateFrom = this.suitableService.navigateFrom;
     this.getProjectsSkills();
   }
 
   getProjectsSkills() {
     this.setNumericVauesForConstantSkills();
-    this.projectsService.projects
+    this.companyServoce.companies
       .subscribe(data => {
         if (data) {
-          this.projects = data.slice();
-          this.setProjectsSkill();
-          this.getCurrentCompanySkills();
-          this.transformAllProjectSkillsToNumeric();
+          this.companies = data.slice();
+          this.setCompaniesSkills();
+          this.getCurrentProjectSkills();
+          this.transformAllsSkillsToNumeric();
+          this.calculateSimilarity();
         }
       });
   }
@@ -58,63 +54,60 @@ export class SuitableComponent implements OnInit {
 
   }
 
-  setProjectsSkill() {
-    this.projects.map(project => {
-      project.allSkills = [];
-      project.team.forEach(teamMember => {
-        project.allSkills.push(...teamMember.skills)
+  setCompaniesSkills() {
+    this.companies.map(company => {
+      company.allSkills = [];
+      company.allSkills.push(...company.skills);
+      company.projects.forEach(project => {
+        company.allSkills.push(...project.usedTechnologies);
       });
     });
   }
 
-  getCurrentCompanySkills() {
-    this.companySkills.push(...this.company.skills);
-    this.company.projects.forEach(project => {
-      this.companySkills.push(...project.usedTechnologies);
+  getCurrentProjectSkills() {
+    this.projectSkills.push(...this.project.skills);
+    this.project.allSkills = [];
+    this.project.team.map(teamMember => {
+      this.project.allSkills.push(...teamMember.skills);
     });
   }
 
-  transformAllProjectSkillsToNumeric() {
-    this.projects.map(project => {
-      project.allSkillsInNumeric = [];
-      project.allSkills.forEach(skill => {
-        project.allSkillsInNumeric.push(this.transformWordIntoNumeric(skill));
+  transformAllsSkillsToNumeric() {
+    this.companies.map(company => {
+      company.allSkillsInNumeric = [];
+      company.allSkills.forEach(skill => {
+        company.allSkillsInNumeric.push(this.transformWordIntoNumeric(skill));
       });
-
     });
-    console.log(this.projects);
+    this.project.allSkillsInNumeric = [];
+    this.project.allSkills.forEach(skill => {
+      this.project.allSkillsInNumeric.push(this.transformWordIntoNumeric(skill));
+    });
+    console.log(this.project);
+    console.log(this.companies);
   }
 
   transformWordIntoNumeric(skill) {
-    console.log(this.constantSkills);
     return this.constantSkills.filter((constantSkill: any) => skill === constantSkill.value)[0];
   }
 
+  calculateSimilarity() {
+    console.log(this.project.allSkillsInNumeric, this.companies);
+    this.project.allSkillsInNumeric.forEach(
+      projectSkill => {
+        this.companies.forEach(company => {
+          company.suitablePoints = 0;
+          const exist = company.allSkillsInNumeric.find(companySkill => companySkill.number === projectSkill.number);
+          if (exist) {
+            company.suitablePoints++;
+          }
+        })
 
-  async train(): Promise<any> {
-    // Define a model for linear regression.
-    this.linearModel = tf.sequential();
-    this.linearModel.add(tf.layers.dense({units: 1, inputShape: [1]}));
-
-    // Prepare the model for training: Specify the loss and the optimizer.
-    this.linearModel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
-
-
-    // Training data, completely random stuff
-    const xs = tf.tensor1d([3.2, 4.4, 5.5]);
-    const ys = tf.tensor1d([1.6, 2.7, 3.5]);
-
-
-    // Train
-    await this.linearModel.fit(xs, ys)
-
-    console.log('model trained!')
+      }
+    )
   }
 
-  predict(val: number) {
-    const output = this.linearModel.predict(tf.tensor2d([val], [1, 1])) as any;
-    this.prediction = Array.from(output.dataSync())[0];
-    console.log(output,this.prediction, this.linearModel);
-  }
+
+
 
 }

@@ -83,6 +83,10 @@
 
     <section class="bottom" *ngIf="myProjectsPage">
       <button class="btn btn-purple details-btn" (click)="generateBestList()">Generate best companies list</button>
+      <div class="best-companies">
+        <caypro-suitable [project]="project"></caypro-suitable>
+
+      </div>
 
     </section>
 
