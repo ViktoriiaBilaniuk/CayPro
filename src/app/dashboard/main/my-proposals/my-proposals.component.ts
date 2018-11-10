@@ -41,8 +41,9 @@ export class MyProposalsComponent implements OnInit {
       d.getHours() + ":" + d.getMinutes();
   }
 
-  proposalClick(proposal) {
-    this.router.navigate(['./dashboard/main/my-proposals', proposal.id] );
+  proposalClick(proposal, type) {
+    this.router.navigate(['./dashboard/main/my-proposals', proposal.id],
+      {queryParams: {type: type}} );
   }
 
 }

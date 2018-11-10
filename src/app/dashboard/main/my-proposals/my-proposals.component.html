@@ -8,7 +8,7 @@
         <th>Description</th>
         <th>Date</th>
       </tr>
-      <tr *ngFor="let proposal of incomingProposals" (click)="proposalClick(proposal)">
+      <tr *ngFor="let proposal of incomingProposals" (click)="proposalClick(proposal, 'inc')">
         <td>{{proposal.fromUserEmail}}</td>
         <td>{{proposal.subject}}</td>
         <td>{{proposal.description}}</td>
@@ -27,7 +27,7 @@
         <th>Description</th>
         <th>Date</th>
       </tr>
-      <tr *ngFor="let proposal of incomingProposals" (click)="proposalClick(proposal)">
+      <tr *ngFor="let proposal of sentProposals" (click)="proposalClick(proposal, 'sent')">
         <td>{{proposal.toUserEmail}}</td>
         <td>{{proposal.subject}}</td>
         <td>{{proposal.description}}</td>
