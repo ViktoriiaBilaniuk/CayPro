@@ -18,7 +18,6 @@ export class MyProjectsComponent implements OnInit {
   }
 
   getUserProjects() {
-
     this.authService.isLoggedIn()
       .subscribe(user => {
         this.projectService.projects
@@ -27,8 +26,6 @@ export class MyProjectsComponent implements OnInit {
             this.projects = allProjects.filter(project => project.userEmail === user.user.email);
           });
       });
-
-
   }
 
 }

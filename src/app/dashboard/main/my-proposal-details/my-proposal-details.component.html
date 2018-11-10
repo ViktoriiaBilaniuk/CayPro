@@ -1,0 +1,16 @@
+<div class="container" *ngIf="proposal">
+  <div class="header">Proposal</div>
+  <div class="item">
+    <span class="title">From:</span> <span>{{proposal.fromUserEmail}}</span>
+  </div>
+  <div class="item">
+    <span class="title">Date:</span> <span>{{getDate(proposal.date)}}</span>
+  </div>
+  <div class="item">
+    <span class="title">Subject:</span> <span>{{proposal.subject}}</span>
+  </div>
+  <div class="desc">
+    <div class="title">Description:</div>
+    <div>{{proposal.description}}</div>
+  </div>
+</div>

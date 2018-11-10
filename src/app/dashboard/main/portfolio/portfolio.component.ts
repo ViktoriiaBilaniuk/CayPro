@@ -9,6 +9,7 @@ import {AddProjectComponent} from '../projects/add-project/add-project.component
 import {CompanyService} from '../../../core/services/company/company.service';
 import {PortfolioProjectsComponent} from './portfolio-projects/portfolio-projects.component';
 import {fadeInAnimation} from '../../../shared/animations/fade-in.animation';
+import {AuthService} from "../../../core/services/auth/auth.service";
 
 @Component({
   selector: 'caypro-portfolio',
@@ -29,6 +30,7 @@ export class PortfolioComponent implements OnInit {
     private fb: FormBuilder,
     public dialog: MatDialog,
     private companyService: CompanyService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -103,8 +105,14 @@ export class PortfolioComponent implements OnInit {
   save() {
     const company = this.portfolioForm.value;
     company['projects'] = this.projects;
-    this.companyService.addCompany(company);
+    this.authService.isLoggedIn()
+      .subscribe(user => {
+        company.userEmail = user.user.email;
+        this.companyService.addCompany(company);
+      });
   }
+
+
 
   removeProject(index) {
     this.projects.splice(index, 1);

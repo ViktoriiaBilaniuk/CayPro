@@ -19,6 +19,7 @@ export class CompanyDetailsComponent implements OnInit, AfterViewInit {
 
   company;
   showContacts;
+  companyId;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +39,7 @@ export class CompanyDetailsComponent implements OnInit, AfterViewInit {
 
   getRouteParams() {
     this.route.params.subscribe(params => {
+      this.companyId = params.id;
       this.getCompany(params.id);
     });
   }
@@ -72,7 +74,7 @@ export class CompanyDetailsComponent implements OnInit, AfterViewInit {
   openCostPopup() {
     const dialogRef = this.dialog.open(ProjectCostComponent, {
       width: '600px',
-      data: {  }
+      data: {companyId: this.companyId, toUserEmail: this.company.userEmail}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'show') {

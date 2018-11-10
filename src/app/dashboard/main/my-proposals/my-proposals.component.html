@@ -1,0 +1,38 @@
+<div class="container flex">
+  <div class="section section__left">
+    <div class="title">Incoming proposals:</div>
+    <table>
+      <tr>
+        <th>From</th>
+        <th>Subject</th>
+        <th>Description</th>
+        <th>Date</th>
+      </tr>
+      <tr *ngFor="let proposal of incomingProposals" (click)="proposalClick(proposal)">
+        <td>{{proposal.fromUserEmail}}</td>
+        <td>{{proposal.subject}}</td>
+        <td>{{proposal.description}}</td>
+        <td>{{getDate(proposal.date)}}</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="section section__right">
+    <div class="title">Sent proposals:</div>
+    <table>
+      <tr>
+        <th>To</th>
+        <th>Subject</th>
+        <th>Description</th>
+        <th>Date</th>
+      </tr>
+      <tr *ngFor="let proposal of incomingProposals" (click)="proposalClick(proposal)">
+        <td>{{proposal.toUserEmail}}</td>
+        <td>{{proposal.subject}}</td>
+        <td>{{proposal.description}}</td>
+        <td>{{getDate(proposal.date)}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

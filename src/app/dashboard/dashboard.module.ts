@@ -34,6 +34,8 @@ import { PortfolioComponent } from './main/portfolio/portfolio.component';
 import { PortfolioProjectsComponent } from './main/portfolio/portfolio-projects/portfolio-projects.component';
 import { SuitableComponent } from './main/suitable/suitable.component';
 import { MyProjectsComponent } from './main/my-projects/my-projects.component';
+import { MyProposalsComponent } from './main/my-proposals/my-proposals.component';
+import { MyProposalDetailsComponent } from './main/my-proposal-details/my-proposal-details.component';
 
 @NgModule({
   imports: [
@@ -73,6 +75,8 @@ import { MyProjectsComponent } from './main/my-projects/my-projects.component';
     PortfolioProjectsComponent,
     SuitableComponent,
     MyProjectsComponent,
+    MyProposalsComponent,
+    MyProposalDetailsComponent,
   ],
   entryComponents: [
     ProjectCostComponent,

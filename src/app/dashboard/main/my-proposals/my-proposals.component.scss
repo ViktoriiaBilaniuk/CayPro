@@ -1,0 +1,36 @@
+.container {
+  justify-content: space-between;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.section {
+  width: 50%;
+  border: 1px solid #eaeaea;
+  box-shadow: 7px 7px 20px 0px #e8e8e8cf;
+  padding: 20px;
+  &__left {
+    margin-right: 40px;
+  }
+  .title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+table{
+  font-size: 12px;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  th {
+    padding-bottom: 10px;
+  }
+  tr {
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+  }
+  td {
+    padding: 20px 0;
+  }
+}

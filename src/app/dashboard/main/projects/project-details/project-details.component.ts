@@ -19,6 +19,7 @@ export class ProjectDetailsComponent implements OnInit {
   myProjectsPage;
   bestCompanies = [];
   generateList;
+  projectId;
 
   constructor(
     public dialog: MatDialog,
@@ -33,6 +34,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   getRouteParams() {
     this.route.params.subscribe(params => {
+      this.projectId = params.id;
       this.getProject(params.id);
     });
 
@@ -58,7 +60,7 @@ export class ProjectDetailsComponent implements OnInit {
   openCostPopup() {
     const dialogRef = this.dialog.open(ProjectCostComponent, {
       width: '600px',
-      data: {  }
+      data: {projectId: this.projectId, toUserEmail: this.project.userEmail}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'show') {

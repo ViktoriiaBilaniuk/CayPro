@@ -15,6 +15,7 @@ import {map, startWith} from "rxjs/operators";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {Observable} from "rxjs";
 import {MatAutocompleteSelectedEvent} from "@angular/material";
+import {AuthService} from "../../../../core/services/auth/auth.service";
 
 @Component({
   selector: 'caypro-add-project',
@@ -42,6 +43,7 @@ export class AddProjectComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private validation: ValidationService,
+    private authService: AuthService,
     private projectService: ProjectsService) {
   }
 
@@ -132,7 +134,16 @@ export class AddProjectComponent implements OnInit {
 
   onFormSave(team) {
     this.documentForm.patchValue({team: team});
-    this.projectService.addProject(this.documentForm.value);
+    this.saveProject();
+  }
+
+  saveProject() {
+    const project = this.documentForm.value;
+    this.authService.isLoggedIn()
+      .subscribe(user => {
+        project.userEmail = user.user.email;
+        this.projectService.addProject(project);
+      });
   }
 
 }

@@ -1,11 +1,18 @@
 <div class="wrapper">
   <section class="first">
+    <mat-form-field
+      class="example-full-width input">
+      <input
+        matInput
+        [(ngModel)]="form.subject"
+        placeholder="Subject">
+    </mat-form-field>
     <mat-form-field>
-          <textarea
-            matInput
-            [(ngModel)]="description"
-            placeholder="Describe your proposal">
-          </textarea>
+      <textarea
+        matInput
+        [(ngModel)]="form.description"
+        placeholder="Describe your proposal">
+      </textarea>
     </mat-form-field>
 
 
