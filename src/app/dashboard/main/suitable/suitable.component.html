@@ -1,3 +1,7 @@
-<p>
-  suitable works!
-</p>
+<div>
+  <div class="company" *ngFor="let company of companies ">
+    <div *ngIf="company.presentSimilarity">
+      <caypro-company-item [company]="company" [isSuitablePage]="true"></caypro-company-item>
+    </div>
+  </div>
+</div>

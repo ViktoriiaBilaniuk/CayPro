@@ -34,7 +34,6 @@ export class CompanyService {
   addCompany(company) {
     this.db.collection('companies').add(company)
       .then(data => {
-        console.log(data);
         this.router.navigate(['./dashboard/main/projects']);
         this.snackBar.show('Your portfolio added!');
       }, (err => {

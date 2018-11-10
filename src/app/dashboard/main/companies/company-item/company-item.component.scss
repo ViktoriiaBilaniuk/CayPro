@@ -12,6 +12,9 @@
   }
   &__right {
     width: 20%;
+    &_similarity {
+      width: 40%;
+    }
   }
 }
 
@@ -46,4 +49,10 @@
 .details-btn {
   width: 100%;
   margin-top: 20px;
+}
+
+.percent {
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 16px;
 }

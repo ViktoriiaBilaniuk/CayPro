@@ -21,12 +21,10 @@ export class MyProjectsComponent implements OnInit {
 
     this.authService.isLoggedIn()
       .subscribe(user => {
-        console.log(user);
         this.projectService.projects
           .subscribe(data => {
             const allProjects = data.slice();
-            console.log(allProjects, data);
-             this.projects = allProjects.filter(project => project.userEmail === user.user.email);
+            this.projects = allProjects.filter(project => project.userEmail === user.user.email);
           });
       });
 

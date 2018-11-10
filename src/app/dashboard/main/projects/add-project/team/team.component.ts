@@ -103,7 +103,6 @@ export class TeamComponent implements OnInit, OnChanges {
   }
 
   selectTag(event: MatAutocompleteSelectedEvent, index) {
-    console.log(event, index, this.teamForm);
     if (!this.tags[index]) {
       this.tags[index] = [];
     }

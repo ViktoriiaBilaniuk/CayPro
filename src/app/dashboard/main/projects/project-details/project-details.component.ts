@@ -18,6 +18,7 @@ export class ProjectDetailsComponent implements OnInit {
   project;
   myProjectsPage;
   bestCompanies = [];
+  generateList;
 
   constructor(
     public dialog: MatDialog,
@@ -45,7 +46,6 @@ export class ProjectDetailsComponent implements OnInit {
     projectRef.ref.get().then( (doc) => {
       if (doc.exists) {
         this.project = doc.data();
-        console.log(this.project);
       } else {
         this.snackbar.show('Sorry, no project!');
       }
@@ -68,6 +68,7 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   generateBestList() {
+    this.generateList = true;
 
   }
 

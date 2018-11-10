@@ -25,6 +25,7 @@ export class SuitableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.companyServoce.getAllCompanies();
     this.navigateFrom = this.suitableService.navigateFrom;
     this.getProjectsSkills();
   }
@@ -50,8 +51,6 @@ export class SuitableComponent implements OnInit {
         number: i
       }
     });
-    console.log(this.constantSkills);
-
   }
 
   setCompaniesSkills() {
@@ -83,8 +82,6 @@ export class SuitableComponent implements OnInit {
     this.project.allSkills.forEach(skill => {
       this.project.allSkillsInNumeric.push(this.transformWordIntoNumeric(skill));
     });
-    console.log(this.project);
-    console.log(this.companies);
   }
 
   transformWordIntoNumeric(skill) {
@@ -92,19 +89,42 @@ export class SuitableComponent implements OnInit {
   }
 
   calculateSimilarity() {
-    console.log(this.project.allSkillsInNumeric, this.companies);
+    this.calculateSuitablePoints();
+    this.calculatePercentSimilarity();
+    this.sortCompanies();
+  }
+
+  calculateSuitablePoints() {
     this.project.allSkillsInNumeric.forEach(
       projectSkill => {
         this.companies.forEach(company => {
           company.suitablePoints = 0;
-          const exist = company.allSkillsInNumeric.find(companySkill => companySkill.number === projectSkill.number);
-          if (exist) {
-            company.suitablePoints++;
+          if (projectSkill.number ){
+            const exist = company.allSkillsInNumeric.find(companySkill => {
+              if (companySkill && companySkill.number) {
+                return companySkill.number === projectSkill.number;
+              } else {
+                return false;
+              }
+            });
+            if (exist) {
+              company.suitablePoints++;
+            }
           }
-        })
-
+        });
       }
     )
+  }
+
+  calculatePercentSimilarity() {
+    const projectSkillLength = this.project.allSkillsInNumeric.length;
+    this.companies.forEach(company => {
+      company.presentSimilarity = company.suitablePoints * 100 / projectSkillLength;
+    });
+  }
+
+  sortCompanies() {
+    this.companies.sort((a, b) => b.presentSimilarity - a.presentSimilarity);
   }
 
 

@@ -133,7 +133,6 @@ export class AddProjectComponent implements OnInit {
   onFormSave(team) {
     this.documentForm.patchValue({team: team});
     this.projectService.addProject(this.documentForm.value);
-    console.log(this.documentForm.value);
   }
 
 }

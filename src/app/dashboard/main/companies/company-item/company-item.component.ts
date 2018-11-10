@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class CompanyItemComponent implements OnInit {
   @Input() company;
+  @Input() isSuitablePage;
 
   constructor(
     private router: Router,
@@ -18,7 +19,7 @@ export class CompanyItemComponent implements OnInit {
   }
 
   detailsClick() {
-    this.router.navigate(['../company', this.company.id], { relativeTo: this.route });
+    this.router.navigate(['./dashboard/main/company', this.company.id] );
   }
 
 }

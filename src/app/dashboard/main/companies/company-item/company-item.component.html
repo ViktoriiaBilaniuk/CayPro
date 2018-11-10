@@ -3,14 +3,21 @@
     <div class="title">{{company.name}}</div>
     <div class="desc">{{company.description}}</div>
   </section>
-  <section class="card__right">
+  <section class="card__right" [ngClass]="{'card__right_similarity': isSuitablePage}">
     <ul class="icons">
-      <li class="item">
+      <li class="item" *ngIf="!isSuitablePage">
         <i class="material-icons item__icon">
           group
         </i>
         <span class="item__value"> {{company.size}} </span>
       </li>
+      <li class="item" *ngIf="isSuitablePage">
+        <i class="material-icons item__icon">
+          iso
+        </i>
+        <span>Percent of similarity: </span><span class="item__value percent"> {{company.presentSimilarity | number: '1.2-2'}} % </span>
+      </li>
+
       <button class="btn btn-purple details-btn" (click)="detailsClick()">details</button>
     </ul>
   </section>

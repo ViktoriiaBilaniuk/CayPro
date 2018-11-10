@@ -45,7 +45,6 @@ export class AuthService {
 
   isLoggedIn() {
     return this.fireAuth.authState.map(auth => {
-      console.log(auth);
       if (isNullOrUndefined(auth)) {
         return {
           state: false

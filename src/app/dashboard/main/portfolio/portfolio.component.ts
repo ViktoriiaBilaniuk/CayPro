@@ -96,7 +96,6 @@ export class PortfolioComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.projects.push(result);
-        console.log(result);
       }
     });
   }
@@ -104,7 +103,6 @@ export class PortfolioComponent implements OnInit {
   save() {
     const company = this.portfolioForm.value;
     company['projects'] = this.projects;
-    console.log(company);
     this.companyService.addCompany(company);
   }
 

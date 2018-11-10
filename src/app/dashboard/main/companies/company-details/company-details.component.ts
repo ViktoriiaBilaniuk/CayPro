@@ -4,6 +4,8 @@ import {CompanyService} from '../../../../core/services/company/company.service'
 import {SnackBarService} from '../../../../core/services/snackbar/snack-bar.service';
 import {fadeInAnimation} from '../../../../shared/animations/fade-in.animation';
 import {SuitableService} from "../../../../core/services/suitable/suitable.service";
+import {ProjectCostComponent} from "../../projects/project-details/project-cost/project-cost.component";
+import {MatDialog} from "@angular/material";
 
 @Component({
   selector: 'caypro-company-details',
@@ -16,6 +18,7 @@ import {SuitableService} from "../../../../core/services/suitable/suitable.servi
 export class CompanyDetailsComponent implements OnInit, AfterViewInit {
 
   company;
+  showContacts;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +26,7 @@ export class CompanyDetailsComponent implements OnInit, AfterViewInit {
     private companyService: CompanyService,
     private snackbar: SnackBarService,
     private suitableService: SuitableService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -63,6 +67,18 @@ export class CompanyDetailsComponent implements OnInit, AfterViewInit {
     this.suitableService.company = this.company;
     this.suitableService.navigateFrom = 'company';
     this.router.navigate(['../../suitable'], {relativeTo: this.route});
+  }
+
+  openCostPopup() {
+    const dialogRef = this.dialog.open(ProjectCostComponent, {
+      width: '600px',
+      data: {  }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'show') {
+        this.showContacts = true;
+      }
+    });
   }
 
 }

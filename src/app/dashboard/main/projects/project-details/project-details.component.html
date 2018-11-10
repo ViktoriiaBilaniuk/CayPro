@@ -79,18 +79,13 @@
       </div>
     </section>
 
-
-
     <section class="bottom" *ngIf="myProjectsPage">
-      <button class="btn btn-purple details-btn" (click)="generateBestList()">Generate best companies list</button>
-      <div class="best-companies">
+      <button class="btn btn-purple details-btn sim" (click)="generateBestList()">Generate best companies list</button>
+      <div class="best-companies" *ngIf="generateList">
+        <span class="best-title">Best companies for your project:</span>
         <caypro-suitable [project]="project"></caypro-suitable>
-
       </div>
-
     </section>
-
-
 
   </div>
   <caypro-spinner *ngIf="!project"></caypro-spinner>
