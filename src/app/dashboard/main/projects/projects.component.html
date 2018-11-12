@@ -2,7 +2,7 @@
   <caypro-filters></caypro-filters>
   <div>
     <caypro-project-item
-      *ngFor="let project of projectService.projects | async"
+      *ngFor="let project of projects"
       [project]="project">
     </caypro-project-item>
   </div>

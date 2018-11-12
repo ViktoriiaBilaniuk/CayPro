@@ -18,6 +18,7 @@ export class MyProjectsComponent implements OnInit {
   }
 
   getUserProjects() {
+    this.projectService.getAllProjects();
     this.authService.isLoggedIn()
       .subscribe(user => {
         this.projectService.projects

@@ -9,9 +9,15 @@ import {ProjectsService} from '../../../core/services/projects/projects.service'
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
+  projects;
 
   constructor(public projectService: ProjectsService) { }
 
   ngOnInit() {
+    this.projectService.getAllProjects();
+    this.projectService.projects
+      .subscribe(data => {
+        this.projects = data;
+      });
   }
 }

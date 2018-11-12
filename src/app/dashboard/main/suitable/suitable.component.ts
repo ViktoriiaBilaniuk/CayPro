@@ -56,7 +56,8 @@ export class SuitableComponent implements OnInit {
   setCompaniesSkills() {
     this.companies.map(company => {
       company.allSkills = [];
-      company.allSkills.push(...company.skills);
+      const skillArr = company.skills.slice();
+      Object.assign(company.allSkills, skillArr);
       company.projects.forEach(project => {
         company.allSkills.push(...project.usedTechnologies);
       });
@@ -92,13 +93,22 @@ export class SuitableComponent implements OnInit {
     this.calculateSuitablePoints();
     this.calculatePercentSimilarity();
     this.sortCompanies();
+    console.log(this.project, this.companies);
   }
 
+  uniqArray = (arrArg) => {
+    return arrArg.filter((elem, pos, arr) => {
+      return arr.indexOf(elem) == pos;
+    });
+  };
+
   calculateSuitablePoints() {
-    this.project.allSkillsInNumeric.forEach(
+    this.companies.forEach(company => {
+      company.suitablePoints = 0;
+    });
+    this.uniqArray(this.project.allSkillsInNumeric).forEach(
       projectSkill => {
         this.companies.forEach(company => {
-          company.suitablePoints = 0;
           if (projectSkill.number ){
             const exist = company.allSkillsInNumeric.find(companySkill => {
               if (companySkill && companySkill.number) {
@@ -108,7 +118,7 @@ export class SuitableComponent implements OnInit {
               }
             });
             if (exist) {
-              company.suitablePoints++;
+              company.suitablePoints = company.suitablePoints + 1;
             }
           }
         });
@@ -117,6 +127,7 @@ export class SuitableComponent implements OnInit {
   }
 
   calculatePercentSimilarity() {
+
     const projectSkillLength = this.project.allSkillsInNumeric.length;
     this.companies.forEach(company => {
       company.presentSimilarity = company.suitablePoints * 100 / projectSkillLength;
